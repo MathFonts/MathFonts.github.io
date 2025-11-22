@@ -34,8 +34,8 @@ const mathfont_list = {
 };
 
 
-let basecss="https://nsoiffer.github.io/MathFonts/";
-if(document.location.href.includes("MathFonts")) {
+let basecss="https://mathfonts.github.io/";
+if(document.location.href.includes("mathfonts")) {
     basecss="";
 }
 document.addEventListener("DOMContentLoaded", () => {
