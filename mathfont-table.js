@@ -30,6 +30,7 @@ const mathfont_list = {
     "Pennstander": "Pennstander Math Regular",
     "Luciole": "Luciole Math",
     "ConcMath": "Concrete Math",
+    "NagwaTK": "Nagwa TK Math",
 };
 
 
