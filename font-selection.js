@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 mathfont_link.removeAttribute("href");
             else
                 mathfont_link.setAttribute("href",
-                                           `./${mathfont}/mathfonts.css`);
+                                           `${(document.location.href.includes("mozilla") ? ".." : ".")}/${mathfont}/mathfonts.css`);
 	document.getElementById("mathcss").innerHTML=
        ".htmlmathparagraph, mtext {font-family: " + mathfont_list[mathfont] + ";}\n"
    + "math {font-family: " + mathfont_list[mathfont] + ";}";
