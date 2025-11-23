@@ -9,8 +9,7 @@ TeX distributions or package managers.
 
 @font-face {
     font-family: Noto Sans Math;
-    src: local('Noto Sans Math Regular'), local('NotoSansMath-Regular'),
-         url('NotoSansMath-Regular.woff2'), url('NotoSansMath-Regular.woff');
+    src: url('NotoSansMath-Regular.woff2');
 }
 
 @font-face {

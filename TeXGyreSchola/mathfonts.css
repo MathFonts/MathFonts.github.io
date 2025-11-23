@@ -38,8 +38,7 @@ http://www.gust.org.pl/projects/e-foundry/
 }
 @font-face {
     font-family: TeX Gyre Schola Math;
-    src: local('TeX Gyre Schola Math'), local('TeXGyreScholaMath-Regular'),
-         url('texgyreschola-math.woff2'), url('texgyreschola-math.woff');
+    src: url('texgyreschola-math.woff2');
 }
 
 .oldstylenumbers {

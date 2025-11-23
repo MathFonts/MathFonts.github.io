@@ -8,7 +8,6 @@ this directory for details.
 
 @font-face {
     font-family: Fira Math;
-    src: local('Fira Math'), local('FiraMath-Regular'),
-         url('FiraMath-Regular.woff2');
+    src: url('FiraMath-Regular.woff2');
 }
 

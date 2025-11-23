@@ -37,8 +37,7 @@ http://www.gust.org.pl/projects/e-foundry/
 }
 @font-face {
     font-family: TeX Gyre Termes Math;
-    src: local('TeX Gyre Termes Math'), local('TeXGyreTermesMath-Regular'),
-         url('texgyretermes-math.woff2'), url('texgyretermes-math.woff');
+    src: url('texgyretermes-math.woff2');
 }
 
 .oldstylenumbers {

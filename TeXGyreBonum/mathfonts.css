@@ -38,9 +38,7 @@ http://www.gust.org.pl/projects/e-foundry/
 }
 @font-face {
     font-family: TeX Gyre Bonum Math;
-    src: local('TeX Gyre Bonum Math'), local('TeXGyreBonumMath-Regular'),
-         url('texgyrebonum-math.woff2'),
-         url('texgyrebonum-math.woff');
+    src: url('texgyrebonum-math.woff2');
 }
 
 .oldstylenumbers {

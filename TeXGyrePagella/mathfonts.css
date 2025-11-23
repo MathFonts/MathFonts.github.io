@@ -39,9 +39,7 @@ http://www.gust.org.pl/projects/e-foundry/
 }
 @font-face {
     font-family: TeX Gyre Pagella Math;
-    src: local('TeX Gyre Pagella Math'), local('TeXGyrePagellaMath-Regular'),
-         url('texgyrepagella-math.woff2'),
-         url('texgyrepagella-math.woff');
+    src: url('texgyrepagella-math.woff2');
 }
 
 .oldstylenumbers {
