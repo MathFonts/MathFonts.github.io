@@ -89,7 +89,11 @@
 	<td>5</td>
 	<td>fraction</td>
 	<td></td>
-	<td><math dispay="block"><mfrac><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><mn>2</mn></mfrac></math></td>
+	<td><math dispay="block">
+	    <mfrac><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><mn>2</mn></mfrac>
+            <mo>+</mo>
+	    <mfrac><mi>c</mi><mn>3</mn></mfrac>
+	</math></td>
       </tr>
       <tr>
 	<td>6</td>
@@ -138,25 +142,41 @@
 	<td>12</td>
 	<td>msup</td>
 	<td></td>
-	<td><math><msup><mi>𝜃</mi><mn>2</mn></msup></math></td>
+	<td><math>
+	    <msup><mi>𝜃</mi><mn>2</mn></msup>
+	    <mo>≤</mo>
+	    <msup><mi>𝜑</mi><mn>2</mn></msup>
+	</math></td>
       </tr>
       <tr>
 	<td>13</td>
 	<td>msub</td>
 	<td></td>
-	<td><math><msub><mi>x</mi><mi>i</mi></msub></math></td>
+	<td><math>
+	    <msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><msub><mi>y</mi><mi>j</mi></msub>
+	   </math></td>
       </tr>
       <tr>
 	<td>14</td>
 	<td>msubsup</td>
 	<td></td>
-	<td><math><msubsup><mi>X</mi><mi>𝛼</mi><mi>𝛽</mi></msubsup></math></td>
+	<td><math>
+	    <msubsup><mi>P</mi><mi>𝛼</mi><mi>𝛽</mi></msubsup>
+	    <mo>⟶</mo>
+	    <msubsup><mi>Q</mi><mi>𝜌</mi><mi>𝜏</mi></msubsup>
+	</math></td>
       </tr>
       <tr>
 	<td>15</td>
 	<td>mmultiscripts</td>
 	<td></td>
-	<td><math><mmultiscripts><mi>X</mi><mi>a</mi><mrow/><mprescripts/><mrow/><mi>b</mi></mmultiscripts></math></td>
+	<td><math><mrow>
+	      <mo>{</mo>
+	      <mmultiscripts><mi>X</mi><mi>i</mi><mrow/><mprescripts/><mrow/><mi>a</mi></mmultiscripts>
+	      <mo>,</mo>
+	      <mmultiscripts><mi>X</mi><mi>j</mi><mrow/><mprescripts/><mrow/><mi>b</mi></mmultiscripts>
+	      <mo>}</mo>
+	</mrow></math></td>
       </tr>
       <tr>
 	<td>16</td>
