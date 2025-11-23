@@ -31,6 +31,7 @@ const mathfont_list = {
     "Luciole": "Luciole Math",
     "ConcMath": "Concrete Math",
     "NagwaTK": "Nagwa TK Math",
+    "Euler": "Euler Math",
 };
 
 document.addEventListener("DOMContentLoaded", () => {

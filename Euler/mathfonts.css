@@ -13,8 +13,8 @@ converted to WOFF.
 @namespace m url('http://www.w3.org/1998/Math/MathML');
 
 @font-face {
-    font-family: Euler;
-    src: local('Euler Math'), local('Euler-Math'), url('Euler-Math.woff2'), url('Euler-Math.woff');
+    font-family: Euler Math;
+    src: url('Euler-Math.woff2');
 }
 
 .oldstylenumbers {

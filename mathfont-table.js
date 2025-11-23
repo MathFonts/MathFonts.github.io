@@ -31,11 +31,12 @@ const mathfont_list = {
     "Luciole": "Luciole Math",
     "ConcMath": "Concrete Math",
     "NagwaTK": "Nagwa TK Math",
+    "Euler": "Euler Math",
 };
 
 
 let basecss="https://mathfonts.github.io/";
-if(document.location.href.includes("mathfonts")) {
+if(document.location.href.includes("onts.github.io")) {
     basecss="";
 }
 document.addEventListener("DOMContentLoaded", () => {
