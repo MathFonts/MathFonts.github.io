@@ -5,13 +5,13 @@
 COMPRESS=@PYTHON@ ../compress-font.py
 
 # Build all the open source fonts
-all: Asana DejaVu FiraMath Garamond GFS_NeoHellenic LatinModern LeteSansMath Libertinus NewComputerModern NewComputerModernSans STIX TeXGyreBonum TeXGyrePagella TeXGyreSchola TeXGyreTermes XITS
+all: Asana DejaVu FiraMath Garamond GFSNeoHellenic LatinModern LeteSansMath Libertinus NewComputerModern NewComputerModernSans STIX TeXGyreBonum TeXGyrePagella TeXGyreSchola TeXGyreTermes XITS
 
 # Make all the commands for font generations PHONY as they are very fast.
 # The download operations are slower and will only be performed once.
 # FIXME: This is no longer true with woff2 compression.
 # See https://github.com/fred-wang/MathFonts/issues/5
-.PHONY: clean distclean Asana DejaVu FiraMath Garamond GFS_NeoHellenic LatinModern LeteSansMath Libertinus NeoEuler NewComputerModern NewComputerModernSans STIX TeXGyreBonum TeXGyrePagella TeXGyreSchola TeXGyreTermes XITS
+.PHONY: clean distclean Asana DejaVu FiraMath Garamond GFSNeoHellenic LatinModern LeteSansMath Libertinus NeoEuler NewComputerModern NewComputerModernSans STIX TeXGyreBonum TeXGyrePagella TeXGyreSchola TeXGyreTermes XITS
 
 
 # Asana
@@ -94,19 +94,19 @@ Garamond: Garamond/garamond
 
 # GFS Neohellenic Math
 
-GFS_NEOHELLENIC_URL=https://greekfontsociety-gfs.gr/_assets/fonts/GFS_NeoHellenic.zip
-GFS_NEOHELLENICMATH_URL=https://greekfontsociety-gfs.gr/_assets/fonts/GFS_NeoHellenic_Math.zip
+GFSNEOHELLENIC_URL=https://greekfontsociety-gfs.gr/_assets/fonts/GFSNeoHellenic.zip
+GFSNEOHELLENICMATH_URL=https://greekfontsociety-gfs.gr/_assets/fonts/GFSNeoHellenic_Math.zip
 
-GFS_NeoHellenic/gfs_neohellenic:
+GFSNeoHellenic/gfs_neohellenic:
 	 # Get the GFS NeoHellenic font
-	cd GFS_NeoHellenic; @WGET@ $(GFS_NEOHELLENIC_URL); \
+	cd GFSNeoHellenic; @WGET@ $(GFSNEOHELLENIC_URL); \
 	mkdir gfs_neohellenic; \
-	@UNZIP@ -j GFS_NeoHellenic.zip -d gfs_neohellenic;
+	@UNZIP@ -j GFSNeoHellenic.zip -d gfs_neohellenic;
 	 # Get the GFS NeoHellenic Math font
-	cd GFS_NeoHellenic; @WGET@ $(GFS_NEOHELLENICMATH_URL); \
-	@UNZIP@ -j GFS_NeoHellenic_Math.zip -d gfs_neohellenic;
+	cd GFSNeoHellenic; @WGET@ $(GFSNEOHELLENICMATH_URL); \
+	@UNZIP@ -j GFSNeoHellenic_Math.zip -d gfs_neohellenic;
 
-GFS_NeoHellenic: GFS_NeoHellenic/gfs_neohellenic
+GFSNeoHellenic: GFSNeoHellenic/gfs_neohellenic
 	 # Generate CheckFont logs
 	@PYTHON@ CheckFont.py $@/GFSNeohellenicMath.woff \
 	> $@/CheckFontLog.txt 2> $@/CheckFontError.txt
@@ -365,7 +365,7 @@ clean:
 	rm -rf DejaVu/*.zip DejaVu/dejavu-fonts-ttf;
 	rm -rf FiraMath/firamath;
 	rm -rf Garamond/garamond;
-	rm -rf GFS_NeoHellenic/gfs_neohellenic;
+	rm -rf GFSNeoHellenic/gfs_neohellenic;
 	rm -rf LatinModern/*.zip LatinModern/latinmodern;
 	rm -rf LeteSansMath/*.zip LeteSansMath/lete-sans-math;
 	rm -rf Libertinus/*.zip Libertinus/libertinus;

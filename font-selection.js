@@ -9,7 +9,7 @@ const mathfont_list = {
     "DejaVu": "DejaVu Math TeX Gyre",
     "FiraMath": "Fira Math",
     "Garamond": "Garamond Math",
-    "GFS_NeoHellenic": "GFS NeoHellenic Math",
+    "GFSNeoHellenic": "GFS NeoHellenic Math",
     "LeteSansMath": "Lete Sans Math",
     "Libertinus": "Libertinus Math",
     "LucidaBright": "Lucida Bright (local only)",

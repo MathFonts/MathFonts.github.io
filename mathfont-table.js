@@ -9,7 +9,7 @@ const mathfont_list = {
     "DejaVu": "DejaVu Math TeX Gyre",
     "FiraMath": "Fira Math",
     "Garamond": "Garamond Math",
-    "GFS_NeoHellenic": "GFS NeoHellenic Math",
+    "GFSNeoHellenic": "GFS NeoHellenic Math",
     "LeteSansMath": "Lete Sans Math",
     "Libertinus": "Libertinus Math",
     "LucidaBright": "Lucida Bright (local only)",
@@ -63,10 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('DOMContentLoaded', function () {
 	const table = document.querySelector('table');
 
-      if (!table) return;
+      
       const hdtr = document.getElementById('hdtr');
 
-
+	if (hdtr) {
       for (let value in mathfont_list) {
 	       let th = document.createElement("th");
 	     th.setAttribute("class",value);
@@ -95,6 +95,7 @@ hdtr.appendChild(th);
           row.appendChild(td);
         };						
       });
+	}
         const fontsel=document.getElementById("fontselector");
      for (let value in mathfont_list) {
 		    const sp = document.createElement('span');
