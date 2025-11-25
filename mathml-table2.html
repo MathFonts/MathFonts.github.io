@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MathML Fonts Table</title>
+
+<script src="mathfont-table.js"></script>
+
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14pt;
+    }
+    th {
+	font-size: 10pt;
+	background-color:white;
+    }
+
+    thead {position:sticky;top:0;}
+    
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    td { white-space: nowrap;}
+
+
+    .duplicate {
+      background-color: #fffacd;
+    }
+    p.breadcrumb {font-size: .9rem; border-bottom: solid thin black;}
+    p.breadcrumb a {text-decoration:none; color:blue;}
+</style>
+<script>
+  function updateMathML() {
+      const mml = document.getElementById("ltx").value;
+      const cells = document.getElementById("bdytr").children
+      for (let i =3; i < cells.length;i++) {
+	  cells[i].innerHTML=mml;
+      }
+  }
+  </script>
+</head>
+<body>
+  <p class="breadcrumb"><a href="index.html">MathFonts.github.io</a></p>
+  <h1>MathML Expressions Font Test</h1>
+
+  <details id="fontselector" open="true">
+    <summary><b>Font Column Selection</b></summary>
+  </details>
+
+  <p><b>Edit MathML Expression</b></p>
+  <textarea  id="ltx" rows="10" cols="80">
+    <math>
+      <msup><mi>x</mi><mn>2</mn></msup>
+    </math>
+  </textarea>
+
+  <br/>
+  
+  <button onclick="updateMathML()">Update MathML Table</button>
+  
+  <h3>MathML Font Display</h3>
+  <table>
+    <thead>
+      <tr id="hdtr">
+        <th style="display:none"></th>
+        <th style="display:none"></th>
+        <th style="display:none"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="bdytr">
+	<td style="display:none"></td>
+	<td style="display:none"></td>
+	<td style="display:none"></td>
+	<td><math>x</math></td>
+      </tr>                  
+  </tbody>
+</table>
+
+
+
+</body>
+</html>
