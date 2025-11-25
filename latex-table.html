@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MathML Fonts Table</title>
+
+<script src="mathfont-table.js"></script>
+
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14pt;
+    }
+    th {
+	font-size: 10pt;
+	background-color:white;
+    }
+
+    thead {position:sticky;top:0;}
+    
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    td { white-space: nowrap;}
+
+
+    .duplicate {
+      background-color: #fffacd;
+    }
+    p.breadcrumb {font-size: .9rem; border-bottom: solid thin black;}
+    p.breadcrumb a {text-decoration:none; color:blue;}
+</style>
+<script>
+  function checkfont (f) {
+      return ((document.getElementById('select' + f).checked ? ' ' : '%') +'#1{' + f + '}');
+}
+  function updateLaTeX () {
+      let  docstr=String.raw`
+% !TeX lualatex
+\documentclass{article}
+
+\def\flEXP{${document.getElementById('ltx').value}}
+
+\def\flLIST#1{%
+${checkfont('STIX')}{STIXTwoMath-Regular.otf}
+${checkfont('NewComputerModern')}{NewCMMath-Book.otf}
+${checkfont('NewComputerModernSans')}{NewCMSansMath-Regular.otf}
+${checkfont('LatinModern')}{latinmodern-math.otf}
+${checkfont('Asana')}{Asana-Math.otf}
+${checkfont('DejaVu')}{texgyredejavu-math.otf}
+${checkfont('FiraMath')}{FiraMath-Regular.otf}
+${checkfont('Garamond')}{Garamond-Math.otf}
+${checkfont('GFSNeoHellenic')}{GFSNeohellenicMath.otf}
+${checkfont('LeteSansMath')}{LeteSansMath.otf}
+${checkfont('Libertinus')}{libertinusmath-regular.otf}
+${checkfont('TeXGyreBonum')}{texgyrebonum-math.otf}
+${checkfont('TeXGyrePagella')}{texgyrepagella-math.otf}
+${checkfont('TeXGyreSchola')}{texgyreschola-math.otf}
+${checkfont('TeXGyreTermes')}{texgyretermes-math.otf}
+${checkfont('XITS')}{XITSMath-Regular.otf}
+${checkfont('NotoSans')}{NotoSansMath-Regular.ttf}
+${checkfont('ArsenalSans')}{ArsenalMath-Sans.otf}
+${checkfont('Plex')}{IBMPlexMath-Regular.otf}
+${checkfont('Erewhon')}{Erewhon-Math.otf}
+${checkfont('OldStandard')}{OldStandard-Math.otf}
+${checkfont('XCharter')}{XCharter-Math.otf}
+${checkfont('KpMathRegular')}{KpMath-Regular.otf}
+${checkfont('KpMathSans')}{KpMath-Sans.otf}
+${checkfont('Pennstander')}{PennstanderMath-Regular.otf}
+${checkfont('Luciole')}{Luciole-Math.otf}
+${checkfont('ConcMath')}{Concrete-Math.otf}
+${checkfont('NagwaTK')}{NagwaTKMath-Regular.otf}
+${checkfont('Euler')}{Euler-Math.otf}
+}
+
+\usepackage{unicode-math}
+\def\defmathfont#1#2{\def\tmp##1##2{\expandafter\font\csname ##1#1\endcsname=[#2]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex3; at ##2pt\relax}
+  \tmp{t}{12}\tmp{s}{10}\tmp{ss}{7}}
+
+\flLIST\defmathfont
+
+\begin{document}
+
+\def\flSHOW#1#2{$%
+  \textfont0=\csname t#1\endcsname\textfont1=\textfont0 \textfont2=\textfont0 \textfont3=\textfont0
+  \scriptfont0=\csname s#1\endcsname\scriptfont1=\scriptfont0 \scriptfont2=\scriptfont0 \scriptfont3=\scriptfont0
+  \scriptscriptfont0=\csname ss#1\endcsname\scriptscriptfont1=\scriptscriptfont0 \scriptscriptfont2=\scriptscriptfont0 \scriptscriptfont3=\scriptscriptfont0
+  {\begin{gathered}\flEXP\end{gathered}}$&}
+\def\flHEAD#1#2{\textbf{#1}&}
+
+\large
+\sbox0{\begin{tabular}{|*{40}{c|}}
+&\flLIST\flHEAD\\[5pt]
+&\flLIST\flSHOW
+\end{tabular}}
+\pagewidth\dimexpr\wd0+4cm
+\pageheight\dimexpr\ht0+\ht0+2cm
+\voffset=-1.5cm
+\shipout\box0
+\end{document}
+
+  </head>
+  <body>
+  </body>
+  </html>
+`;
+
+  let f=document.getElementById('doc');
+  doc.textContent=docstr;
+  document.getElementById('f1').submit();
+
+}
+</script>
+</head>
+<body>
+  <p class="breadcrumb"><a href="index.html">MathFonts.github.io</a></p>
+  <h1>LaTeX Expressions Font Test</h1>
+
+  <details id="fontselector" open>
+    <summary><b>Font Column Selection</b></summary>
+  </details>
+
+  <h3>LaTeX Expression</h3>
+  <textarea id="ltx" rows="10" cols="80">
+    x^2+y^2 \\
+    \int_0^1 \cos \theta \,d\theta
+  </textarea>
+<form action="https://texlive.net/cgi-bin/latexcgi"
+      enctype="multipart/form-data"
+      method="post"
+      name="f1" id="f1"
+      target="_blank">
+  <textarea  style="display:none" type="text" name="filecontents[]" id="doc" rows="10" cols="80">
+  </textarea>
+  <input style="display:none" type="text" name="filename[]" value="document.tex"/>
+  <input style="display:none" type="text" name="engine" value="lualatex"/>
+</form>
+
+
+<button onclick="updateLaTeX()">Generate PDF</button>
+
+  <p>Select the fonts to be tested. Edit the LaTeX expression.<br/>
+    Then submit the form to generate a PDF table in a new tab.</p>
+    
+
+</body>
+</html>
