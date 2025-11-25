@@ -2,9 +2,11 @@
   https://johtela.github.io/asciimath2ml/README.html
   ASCIIMath to MathML
   MIT License
+  Copyright © 2024 Tommi Johtela
+  
   
   https://github.com/johtela/asciimath2ml/blob/master/src/index.ts
-  Converted from TS to JS for this site.
+  Converted from TS to JS for the MathFonts.github.io site.
 */
 
 class Scanner {
