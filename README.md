@@ -20,7 +20,7 @@ If the original font distribution provides WOFF2 files they have been used.
 If not, WOFF2 have been generated either by the python scripts distributed here
 or (for more recent additions) by converting using the fontforge font editor.
 
-Nawa TK is currently not distributed as WOFF2 pending clarification on
+Nagwa TK is currently not distributed as WOFF2 pending clarification on
 whether the licence permits that (under the no derivation clause),
 However the OTF works, just is less optimised for a web context than
 a WOFF2 version of the font would be.
