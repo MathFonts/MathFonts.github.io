@@ -2,5 +2,5 @@
 # this will only work if you are me with
 # my ssh-agent running
 
-scp */*.otf texlive.net:/usr/local/texlive/texmf-local/fonts/opentype/mathfonts
+scp */*.?tf texlive.net:/usr/local/texlive/texmf-local/fonts/opentype/mathfonts
 
