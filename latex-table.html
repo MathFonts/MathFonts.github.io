@@ -86,12 +86,15 @@ ${checkfont('Euler')}{Euler-Math.otf}
 
 \begin{document}
 
+\makeatletter
 \def\flSHOW#1#2{$%
+  \edef\operator@font{\csname t#1\endcsname}%
   \textfont0=\csname t#1\endcsname\textfont1=\textfont0 \textfont2=\textfont0 \textfont3=\textfont0
   \scriptfont0=\csname s#1\endcsname\scriptfont1=\scriptfont0 \scriptfont2=\scriptfont0 \scriptfont3=\scriptfont0
   \scriptscriptfont0=\csname ss#1\endcsname\scriptscriptfont1=\scriptscriptfont0 \scriptscriptfont2=\scriptscriptfont0 \scriptscriptfont3=\scriptscriptfont0
   {\begin{gathered}\flEXP\end{gathered}}$&}
 \def\flHEAD#1#2{\textbf{#1}&}
+\makeatother
 
 \large
 \sbox0{\begin{tabular}{|*{40}{c|}}
