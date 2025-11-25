@@ -6,6 +6,7 @@
 
 <script src="mathfont-table.js"></script>
 
+
 <style>
     table {
       border-collapse: collapse;
@@ -37,15 +38,23 @@
 </style>
 <script>
   function updateMathML() {
-      const mml = document.getElementById("ltx").value;
+      const mml = document.getElementById("mmledit").value;
       const cells = document.getElementById("bdytr").children
       for (let i =3; i < cells.length;i++) {
 	  cells[i].innerHTML=mml;
       }
   }
-  </script>
+  function updateASCIIMath() {
+      const am = document.getElementById("asciimathmledit").value;
+      document.getElementById("mmledit").value=asciiToMathML(am,false,false);
+      updateMathML();
+  }
+</script>
+<script src="asciimath2ml.js"></script>
 </head>
 <body>
+
+
   <p class="breadcrumb"><a href="index.html">MathFonts.github.io</a></p>
   <h1>MathML Expressions Font Test</h1>
 
@@ -53,8 +62,17 @@
     <summary><b>Font Column Selection</b></summary>
   </details>
 
+  <p><b>Edit ASCIIMath Expression</b></p>
+  <textarea  id="asciimathedit" rows="10" cols="80">
+      sin^2 x + cos^2 x
+  </textarea>
+
+  <br/>
+  
+  <button onclick="updateASCIIMathML()">Update MathML Table</button>
+  
   <p><b>Edit MathML Expression</b></p>
-  <textarea  id="ltx" rows="10" cols="80">
+  <textarea  id="mmledit" rows="10" cols="80">
     <math>
       <msup><mi>x</mi><mn>2</mn></msup>
     </math>
@@ -82,8 +100,6 @@
       </tr>                  
   </tbody>
 </table>
-
-
 
 </body>
 </html>
