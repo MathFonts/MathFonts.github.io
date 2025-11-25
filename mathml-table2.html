@@ -45,7 +45,7 @@
       }
   }
   function updateASCIIMath() {
-      const am = document.getElementById("asciimathmledit").value;
+      const am = document.getElementById("asciimathedit").value;
       document.getElementById("mmledit").value=asciiToMathML(am,false,false);
       updateMathML();
   }
@@ -69,7 +69,7 @@
 
   <br/>
   
-  <button onclick="updateASCIIMathML()">Update MathML Table</button>
+  <button onclick="updateASCIIMath()">Update MathML Table</button>
   
   <p><b>Edit MathML Expression</b></p>
   <textarea  id="mmledit" rows="10" cols="80">
