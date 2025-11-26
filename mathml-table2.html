@@ -167,17 +167,17 @@
     <b id="ltxtab" class="tab" onclick="showtab('ltx')">Edit LaTeX</b>
     <b id="asciimathtab" class="tab" onclick="showtab('asciimath')" style="background-color:white;z-index:2;">Edit ASCIIMath</b>
   </p>
-  <textarea id="ltxedit"  rows="5" cols="80" style="display:none;position:relative">
+  <textarea id="ltxedit"  rows="5" cols="80" spellcheck="false" style="display:none;position:relative">
     \frac{1}{x}+\sqrt{y}
     </textarea>
-  <textarea  id="asciimathedit" rows="5" cols="80" style="position:relative;display:block;z-index:1;">
+  <textarea  id="asciimathedit" rows="5" cols="80" spellcheck="false" style="position:relative;display:block;z-index:1;">
       sin^2 x + cos^2 x
   </textarea>
   <button id="ltxb" onclick="updateLaTeX()" style="display:none">Update MathML from LaTeX</button>
   <button id="asciimathb" onclick="updateASCIIMath()" tyle=s"background-color:white;z-index:2;">Update MathML from ASCIIMath</button>
   
   <p class="tabs"><b class="tab" style="background-color:white;z-index:2;">Edit MathML Expression</b></p>
-  <textarea  id="mmledit" rows="10" cols="80" style="position:relative;display:block;z-index:1;">
+  <textarea  id="mmledit" rows="10" cols="80" spellcheck="false" style="position:relative;display:block;z-index:1;">
     <math>
       <msup><mi>x</mi><mn>2</mn></msup>
     </math>
