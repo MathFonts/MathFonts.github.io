@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       for (let value in mathfont_list) {
 	  let tb = document.createElement("table");
 	  tb.setAttribute("class","mml");
-	  tb.innerHTML=`<table><thead><tr><th class="${value}">${mathfont_list[value]}</th></tr></thead><tbody><tr><td class="mml ${value}"><math><mi>x</mi></math></td></tr></tbody><table>`;
+	  tb.innerHTML=`<table><thead><tr><th class="${value}">${mathfont_list[value]}</th></tr></thead><tbody><tr><td class="mml ${value}"><math display="block"><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><msqrt><mi>y</mi></msqrt></math></td></tr></tbody><table>`;
 flow.appendChild(tb);}
 	}
 

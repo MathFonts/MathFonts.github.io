@@ -184,16 +184,18 @@
     \frac{1}{x}+\sqrt{y}
     </textarea>
   <textarea  id="asciimathedit" rows="5" cols="80" spellcheck="false" style="position:relative;display:block;z-index:1;">
-      sin^2 x + cos^2 x
+      1/x + sqrt y
   </textarea>
   <button id="ltxb" onclick="updateLaTeX()" style="display:none">Update MathML Table</button>
   <button id="asciimathb" onclick="updateASCIIMath()" tyle=s"background-color:white;z-index:2;">Update MathML Table</button>
   
   <p class="tabs"><b class="tab" style="background-color:white;z-index:2;">Edit MathML</b></p>
   <textarea  id="mmledit" rows="10" cols="80" spellcheck="false" style="position:relative;display:block;z-index:1;">
-    <math>
-      <msup><mi>x</mi><mn>2</mn></msup>
-    </math>
+<math display="block">
+  <mfrac><mn>1</mn><mi>x</mi></mfrac>
+  <mo>+</mo>
+  <msqrt><mi>y</mi></msqrt>
+</math>
   </textarea>  
   <button onclick="updateMathML()">Update MathML Table</button>
   <button onclick="reformatMathML()">Reformat MathML</button>
@@ -214,7 +216,7 @@
 	<td style="display:none"></td>
 	<td style="display:none"></td>
 	<td style="display:none"></td>
-	<td><math>x</math></td>
+	<td><math display="block"><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><msqrt><mi>y</mi></msqrt></math></td>
       </tr>                  
   </tbody>
 </table>
