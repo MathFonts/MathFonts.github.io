@@ -41,7 +41,6 @@
 }
   function updateLaTeX () {
       const lh=document.getElementById("lh").checked;
-      alert(lh);
       let  docstr=String.raw`
 % !TeX lualatex
 \documentclass{article}
@@ -141,7 +140,7 @@ ${lh? '&' : ''}\flLIST\flSHOW
       method="post"
       name="f1" id="f1"
       target="_blank">
-  <textarea   type="text" name="filecontents[]" id="doc" rows="10" cols="80">
+  <textarea style="display:none" type="text" name="filecontents[]" id="doc" rows="10" cols="80">
   </textarea>
   <input style="display:none" type="text" name="filename[]" value="document.tex"/>
   <input style="display:none" type="text" name="engine" value="lualatex"/>
