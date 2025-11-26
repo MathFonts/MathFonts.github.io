@@ -25,6 +25,12 @@ whether the licence permits that (under the no derivation clause),
 However the OTF works, just is less optimised for a web context than
 a WOFF2 version of the font would be.
 
+The test files sources include convertors to MathML syntax,
+distributed from this site under their original MIT licence.
+[Temml](https://temml.org/)  and
+[AsciiMath2ML](https://johtela.github.io/asciimath2ml).
+
+
 David Carlisle and Neil Soiffer
 
 
