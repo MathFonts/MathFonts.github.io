@@ -91,12 +91,14 @@
       }
   }
   function updateASCIIMath() {
+      document.getElementById("ltxedit").value="";
       const am = document.getElementById("asciimathedit").value;
       document.getElementById("mmledit").value=asciiToMathML(am,false,false);
       updateMathML();
   }
     let ltxdiv = document.createElement("div");
   function updateLaTeX(){
+      document.getElementById("asciimathedit").value="";
       const ltxm = document.getElementById("ltxedit").value;
       temml.render(ltxm, ltxdiv, { displayMode: true });
       document.getElementById("mmledit").value=ltxdiv.innerHTML;
@@ -173,10 +175,10 @@
   <textarea  id="asciimathedit" rows="5" cols="80" spellcheck="false" style="position:relative;display:block;z-index:1;">
       sin^2 x + cos^2 x
   </textarea>
-  <button id="ltxb" onclick="updateLaTeX()" style="display:none">Update MathML from LaTeX</button>
-  <button id="asciimathb" onclick="updateASCIIMath()" tyle=s"background-color:white;z-index:2;">Update MathML from ASCIIMath</button>
+  <button id="ltxb" onclick="updateLaTeX()" style="display:none">Update MathML Table</button>
+  <button id="asciimathb" onclick="updateASCIIMath()" tyle=s"background-color:white;z-index:2;">Update MathML Table</button>
   
-  <p class="tabs"><b class="tab" style="background-color:white;z-index:2;">Edit MathML Expression</b></p>
+  <p class="tabs"><b class="tab" style="background-color:white;z-index:2;">Edit MathML</b></p>
   <textarea  id="mmledit" rows="10" cols="80" spellcheck="false" style="position:relative;display:block;z-index:1;">
     <math>
       <msup><mi>x</mi><mn>2</mn></msup>
