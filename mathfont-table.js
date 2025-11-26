@@ -65,6 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       
       const hdtr = document.getElementById('hdtr');
+      const flow = document.getElementById('flow');
+
+	if(flow) {
+      for (let value in mathfont_list) {
+	  let tb = document.createElement("table");
+	  tb.setAttribute("class","mml");
+	  tb.innerHTML=`<table><thead><tr><th class="${value}">${mathfont_list[value]}</th></tr></thead><tbody><tr><td class="mml ${value}"><math><mi>x</mi></math></td></tr></tbody><table>`;
+flow.appendChild(tb);}
+	}
 
 	if (hdtr) {
       for (let value in mathfont_list) {

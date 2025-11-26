@@ -54,26 +54,30 @@
 	 margin-bottom: -.5em;
 	}
 
+   table.mml {
+       display: inline-table;
+   }
     table {
       border-collapse: collapse;
-      width: 100%;
       font-size: 14pt;
     }
     th {
 	font-size: 10pt;
 	background-color:white;
+        text-align: center;
+	margin:.5em;
     }
-
-    thead {position:sticky;top:0;}
     
+    tbody td  {min-height:10em}    
     th, td {
-      border: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
       padding: 6px 10px;
-      text-align: left;
       vertical-align: middle;
     }
 
-    td { white-space: nowrap;}
+    td { white-space: nowrap;
+             text-align: left;}
 
 
     .duplicate {
@@ -84,9 +88,9 @@
 </style>
 <script>
   function updateMathML() {
+      const cells = Array.from(document.querySelectorAll('td.mml'));
       const mml = document.getElementById("mmledit").value;
-      const cells = document.getElementById("bdytr").children
-      for (let i =3; i < cells.length;i++) {
+      for (let i =0; i < cells.length;i++) {
 	  cells[i].innerHTML=mml;
       }
   }
@@ -188,7 +192,9 @@
   <button onclick="reformatMathML()">Reformat MathML</button>
   
   <h3>MathML Font Display</h3>
-  <table>
+
+  <!--
+   <table>
     <thead>
       <tr id="hdtr">
         <th style="display:none"></th>
@@ -205,6 +211,10 @@
       </tr>                  
   </tbody>
 </table>
+   -->
 
+   <div id="flow">
+   </div>
+   
 </body>
 </html>
