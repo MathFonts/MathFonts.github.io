@@ -49,8 +49,17 @@
       document.getElementById("mmledit").value=asciiToMathML(am,false,false);
       updateMathML();
   }
+    let ltxdiv = document.createElement("div");
+  function updateLaTeX(){
+      const ltxm = document.getElementById("ltxedit").value;
+      temml.render(ltxm, ltxdiv, { displayMode: true });
+      document.getElementById("mmledit").value=ltxdiv.innerHTML;
+      updateMathML();
+  }
+
 </script>
 <script src="asciimath2ml.js"></script>
+<script src="Temml-0.12.01/dist/temml.min.js"></script>
 </head>
 <body>
 
@@ -62,6 +71,17 @@
     <summary><b>Font Column Selection</b></summary>
   </details>
 
+  <p><b>Edit LaTeX Expression</b></p>
+  <textarea id="ltxedit"  rows="10" cols="80">
+    \frac{1}{x}+\sqrt{y}
+    </textarea>
+
+  <br/>
+  
+  <button onclick="updateLaTeX()">Update MathML Table from LaTeX</button>
+
+
+    
   <p><b>Edit ASCIIMath Expression</b></p>
   <textarea  id="asciimathedit" rows="10" cols="80">
       sin^2 x + cos^2 x
@@ -69,7 +89,7 @@
 
   <br/>
   
-  <button onclick="updateASCIIMath()">Update MathML Table</button>
+  <button onclick="updateASCIIMath()">Update MathML Table from ASCIIMath</button>
   
   <p><b>Edit MathML Expression</b></p>
   <textarea  id="mmledit" rows="10" cols="80">
