@@ -6,8 +6,54 @@
 
 <script src="mathfont-table.js"></script>
 
-
+<script>
+    function showtab(s) {
+	if (s=='ltx') {hidetab('asciimath');} else {hidetab('ltx');}
+	const tab=document.getElementById(s+"tab");
+	tab.style.backgroundColor="white";
+	tab.style.zIndex=2;
+	document.getElementById(s+"b").style.display='inline';
+	const estyle = document.getElementById(s+"edit").style;
+	estyle.display='block';	
+	estyle.zIndex=1;	
+	estyle.position="relative";
+    }
+    function hidetab(s) {
+	const tab=document.getElementById(s+"tab");
+	tab.style.backgroundColor="#EEE";
+	tab.style.zIndex=0;
+	document.getElementById(s+"b").style.display='none';	
+	const estyle = document.getElementById(s+"edit").style;
+	estyle.display='none';
+	estyle.zIndex=1;
+	estyle.position="relative";
+    }
+</script>  
 <style>
+
+   .tabs
+        {margin-top: 1em;
+	 margin-bottom: .5em;
+	 white-space: nowrap;
+	}
+  
+   .tab {margin-left: 2pt;
+	 margin-right: 2pt;
+	 display: inline-block;
+	 text-align: center;
+	 padding: .5em;
+	 border-top: solid thin black;
+	 border-left: solid thin black;
+	 border-right: solid thin black;
+	 border-radius: .75em .75em 0 0;
+	 background-color: #EEE;
+	 cursor: pointer;
+	 position:relative;
+	 top: 3px;
+	 z-index:0;
+	 margin-bottom: -.5em;
+	}
+
     table {
       border-collapse: collapse;
       width: 100%;
@@ -56,7 +102,53 @@
       document.getElementById("mmledit").value=ltxdiv.innerHTML;
       updateMathML();
   }
+  const mmldiv = document.createElement("div");
+  function reformatMathML () {
+      var mmlnew = "";
+      const mmle=document.getElementById("mmledit");
+      mmldiv.innerHTML=mmle.value;
+      const c = mmldiv.children;
+      if(c.length != 1 || c[0].localName != "math") {
+          mmlnew='<math display="block">\n' + mmlIndent(c,0) + '\n</math>';
+      } else {
+	  mmlnew=mmlIndent(c,"\n");
+      }
+      mmle.value=mmlnew;
+  }
 
+  function mmlIndent(n,i) {
+      var s=""
+      Array.from(n).forEach(nn => {
+	  if (nn.nodeType==1) {
+	  s=s+ i+ "<" + nn.localName;
+	  const atts=nn.attributes;
+	  if(atts){
+	      for(var j=0;j<atts.length;j++) {
+		  const ln =atts[j].localName;
+		  if(ln!="id" && ln!="class") {
+		      s=s+" " + ln +'="'+atts[j].value+'"';
+		  }
+	      }
+	  }
+	      const nnc=nn.childNodes
+	      if (nnc.length) {
+		  s=s+">"+
+		      ((nnc.length==1 && nnc[0].nodeType==3)
+		       ?
+		       nnc[0].wholeText.trim()
+		       :
+		       `${mmlIndent(nnc,i+" ")}${i}`
+		      ) +
+		      "</" + nn.localName + ">";
+	      } else {
+		  s=s+"/>";
+	      }
+	  } else {
+	      s=s+i+nn.wholeText.trim();
+	  }
+      });
+      return s;
+  }
 </script>
 <script src="asciimath2ml.js"></script>
 <script src="Temml-0.12.01/dist/temml.min.js"></script>
@@ -71,36 +163,27 @@
     <summary><b>Font Column Selection</b></summary>
   </details>
 
-  <p><b>Edit LaTeX Expression</b></p>
-  <textarea id="ltxedit"  rows="10" cols="80">
+  <p class="tabs">
+    <b id="ltxtab" class="tab" onclick="showtab('ltx')">Edit LaTeX</b>
+    <b id="asciimathtab" class="tab" onclick="showtab('asciimath')" style="background-color:white;z-index:2;">Edit ASCIIMath</b>
+  </p>
+  <textarea id="ltxedit"  rows="5" cols="80" style="display:none;position:relative">
     \frac{1}{x}+\sqrt{y}
     </textarea>
-
-  <br/>
-  
-  <button onclick="updateLaTeX()">Update MathML Table from LaTeX</button>
-
-
-    
-  <p><b>Edit ASCIIMath Expression</b></p>
-  <textarea  id="asciimathedit" rows="10" cols="80">
+  <textarea  id="asciimathedit" rows="5" cols="80" style="position:relative;display:block;z-index:1;">
       sin^2 x + cos^2 x
   </textarea>
-
-  <br/>
+  <button id="ltxb" onclick="updateLaTeX()" style="display:none">Update MathML from LaTeX</button>
+  <button id="asciimathb" onclick="updateASCIIMath()" tyle=s"background-color:white;z-index:2;">Update MathML from ASCIIMath</button>
   
-  <button onclick="updateASCIIMath()">Update MathML Table from ASCIIMath</button>
-  
-  <p><b>Edit MathML Expression</b></p>
-  <textarea  id="mmledit" rows="10" cols="80">
+  <p class="tabs"><b class="tab" style="background-color:white;z-index:2;">Edit MathML Expression</b></p>
+  <textarea  id="mmledit" rows="10" cols="80" style="position:relative;display:block;z-index:1;">
     <math>
       <msup><mi>x</mi><mn>2</mn></msup>
     </math>
-  </textarea>
-
-  <br/>
-  
+  </textarea>  
   <button onclick="updateMathML()">Update MathML Table</button>
+  <button onclick="reformatMathML()">Reformat MathML</button>
   
   <h3>MathML Font Display</h3>
   <table>
