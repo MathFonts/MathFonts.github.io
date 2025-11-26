@@ -40,6 +40,8 @@
       return ((document.getElementById('select' + f).checked ? ' ' : '%') +'#1{' + f + '}');
 }
   function updateLaTeX () {
+      const lh=document.getElementById("lh").checked;
+      alert(lh);
       let  docstr=String.raw`
 % !TeX lualatex
 \documentclass{article}
@@ -86,17 +88,17 @@ ${checkfont('Euler')}{Euler-Math.otf}
 
 \begin{document}
 
-\def\flSHOW#1#2{\csname t#1\endcsname$%
+\def\flSHOW#1#2{${lh? '' : '#1&'}\csname t#1\endcsname$%
   \textfont0=\csname t#1\endcsname\textfont1=\textfont0 \textfont2=\textfont0 \textfont3=\textfont0 \textfont4=\textfont0
-  \scriptfont0=\csname s#1\endcsname\scriptfont1=\scriptfont0 \scriptfont2=\scriptfont0 \scriptfont3=\scriptfont0
+  \scriptfont0=\csname s#1\endcsname\scriptfont1=\scriptfont0 \scriptfont2=\scriptfont0 \scriptfont3=\scriptfont0 \scriptfont4=\scriptfont0
   \scriptscriptfont0=\csname ss#1\endcsname\scriptscriptfont1=\scriptscriptfont0 \scriptscriptfont2=\scriptscriptfont0 \scriptscriptfont3=\scriptscriptfont0 \scriptscriptfont4=\scriptscriptfont0
-  {\begin{gathered}\flEXP\end{gathered}}$&}
+  {\begin{gathered}\flEXP\end{gathered}}$ ${lh? '&' : '\\\\[10pt]'}}
 \def\flHEAD#1#2{\textbf{#1}&}
 
 \large
-\sbox0{\begin{tabular}{|*{40}{c|}}
-&\flLIST\flHEAD\\[5pt]
-&\flLIST\flSHOW
+\sbox0{\begin{tabular}{${lh? '|*{40}{c|}' : 'l|c' }}
+${lh? '&\\flLIST\\flHEAD\\\\[5pt]' : '%'}
+${lh? '&' : ''}\flLIST\flSHOW
 \end{tabular}}
 \pagewidth\dimexpr\wd0+4cm
 \pageheight\dimexpr\ht0+\ht0+2cm
@@ -123,6 +125,10 @@ ${checkfont('Euler')}{Euler-Math.otf}
 
   <details id="fontselector" open>
     <summary><b>Font Column Selection</b></summary>
+  <p>
+    <input type="radio" name="layout" id="lh" checked/><label for="lh">Horizontal</label>
+    <input type="radio" name="layout" id="lv"        /><label for="lv">Vertical</label>
+  </p>
   </details>
 
   <h3>LaTeX Expression</h3>
@@ -130,12 +136,12 @@ ${checkfont('Euler')}{Euler-Math.otf}
     x^2+y^2 \\
     \int_0^1 \cos \theta \,d\theta
   </textarea>
-<form action="https://texlive.net/cgi-bin/latexcgi"
+  <form action="https://texlive.net/cgi-bin/latexcgi"
       enctype="multipart/form-data"
       method="post"
       name="f1" id="f1"
       target="_blank">
-  <textarea  style="display:none" type="text" name="filecontents[]" id="doc" rows="10" cols="80">
+  <textarea   type="text" name="filecontents[]" id="doc" rows="10" cols="80">
   </textarea>
   <input style="display:none" type="text" name="filename[]" value="document.tex"/>
   <input style="display:none" type="text" name="engine" value="lualatex"/>
