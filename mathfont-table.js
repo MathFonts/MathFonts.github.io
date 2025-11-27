@@ -130,14 +130,22 @@ hdtr.appendChild(th);
 	const cc=n.id.replace('select','');
 	if(n.checked) {
 	    if(cc=="FontDrop") {
+		const fd = document.getElementById('fontdragr');
+		if(fd) {
 		  document.getElementById('fd-selector').value='.FontDrop, .FontDrop math';
 
-		document.getElementById('fontdragr').style.display="block";
+		    fd.style.display="block";
+		}
 	    }
 	    Array.from(document.querySelectorAll(c)).forEach(cell=> {
                 cell.style.display='table-cell';
 	    })} else {
-		if(cc=="FontDrop") document.getElementById('fontdragr').style.display="none";
+		if(cc=="FontDrop") {
+		    const fd = document.getElementById('fontdragr');
+		    if(fd) {
+			document.getElementById('fontdragr').style.display="none";
+		    }
+		}
 	    Array.from(document.querySelectorAll(c)).forEach(cell=> {
                 cell.style.display='none';
 	    })}	    
