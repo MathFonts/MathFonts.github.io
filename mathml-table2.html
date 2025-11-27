@@ -154,7 +154,7 @@
 	      } else {
 		  s=s+"/>";
 	      }
-	  } else {
+	  } else if (nn.nodeType==3) {
 	      let t = nn.wholeText.trim();
 	      if(t) s=s+i+t;
 	  }
