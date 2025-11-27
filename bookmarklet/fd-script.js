@@ -65,7 +65,7 @@ var FD = FD || {};
 			data = (( /*@cc_on!@*/0 ) ? dt.getData( "Text" ) : dt.getData( "text/plain" )),
 			files = dt.files || false,
 			count = files.length,
-			acceptedFileExtensions = /^.*\.(ttf|otf|woff)$/i;
+			acceptedFileExtensions = /^.*\.(ttf|otf|woff2?)$/i;
 
 		preventActions( evt );
 
