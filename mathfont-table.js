@@ -107,7 +107,8 @@ hdtr.appendChild(th);
       });
 	}
         const fontsel=document.getElementById("fontselector");
-     for (let value in mathfont_list) {
+	for (let value in mathfont_list) {
+	    if(value!="FontDrop" || typeof noFontDrop == 'undefined') {
 		    const sp = document.createElement('span');
 		    const t = document.createTextNode(' ');
 		    sp.style.whiteSpace="nowrap";
@@ -123,6 +124,7 @@ hdtr.appendChild(th);
 		    sp.appendChild(lb);
 		    fontsel.appendChild(sp);
 		    fontsel.appendChild(t);
+	        	}
 		}
     });
     function showColumn(n) {
