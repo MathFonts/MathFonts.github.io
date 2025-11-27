@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let sty = document.createElement("style");
     for (let value in mathfont_list) {
-	if(value != "Default" ){
+	if(value != "Default" && value !="FontDrop" ){
 	    sty.textContent+=`\n .${value}, .${value} math \
           { font-family: '${mathfont_list[value].replace(' (local only)','')}'; }`;
 	    let mathfont_link = document.createElement("link");
