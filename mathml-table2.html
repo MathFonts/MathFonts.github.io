@@ -73,7 +73,6 @@
       border-left: 1px solid #ccc;
       border-right: 1px solid #ccc;
       padding: 6px 10px;
-      min-width: 15em;
       vertical-align: middle;
     }
 
@@ -87,6 +86,8 @@
     p.breadcrumb {font-size: .9rem; border-bottom: solid thin black;}
     p.breadcrumb a {text-decoration:none; color:blue;}
 </style>
+<style id="minwcss">th,td{min-width: 15em;}</style>
+
 <script>
   function updateMathML() {
       const cells = Array.from(document.querySelectorAll('td.mml'));
@@ -175,6 +176,9 @@
 
   <details id="fontselector" open="true">
     <summary><b>Font Column Selection</b></summary>
+  <p>
+    <input id="setminw" type="range" min="0" max="60" step="1" value="15"/>
+<label for="setminw">min width:</label>  <output id="minwvalue"></output>em</p>
   </details>
 
   <p class="tabs">
@@ -222,6 +226,17 @@
   </tbody>
 </table>
    -->
+
+ <script>
+const minwv = document.querySelector("#minwvalue");
+const minwin = document.querySelector("#setminw");
+const minwcss = document.querySelector("#minwcss");
+	minwv.textContent = minwin.value;
+minwin.addEventListener("input", (event) => {
+  minwv.textContent = event.target.value;
+    minwcss.textContent = "th,td{min-width: " + event.target.value +"em;}";
+});
+   </script>
 
    <div id="flow">
    </div>
