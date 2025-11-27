@@ -160,7 +160,29 @@
 	  }
       });
       return s;
-  }
+    }
+
+    function updateURL () {
+    var newl="?w=" + minwin.value + "&fonts=,";
+    for (let value in mathfont_list) {
+    if(document.getElementById("select"+value).checked) newl=newl+value+",";
+    }
+    const l= document.getElementById("ltxedit").value
+    const am = document.getElementById("asciimathedit").value;
+    const mml = document.getElementById("mmledit").value;
+    if(l) newl=newl + "&ltx=" + encodeURIComponent(l);
+    if(am) newl=newl + "&am=" + encodeURIComponent(am);
+    if(mml) newl=newl + "&mml=" + encodeURIComponent(mml);
+    // copy to clipboard
+    var nn=document.createElement("textarea");
+    nn.value=document.location.protocol + "//" + document.location.host + document.location.pathname + newl;
+    document.body.appendChild(nn);
+    nn.select();
+    document.execCommand("copy");
+    document.body.removeChild(nn);
+    // update
+    document.location.search = newl;
+    }
 </script>
 <script src="asciimath2ml.js"></script>
 <script src="Temml-0.12.01/dist/temml.min.js"></script>
@@ -209,7 +231,9 @@
   </textarea>  
   <button onclick="updateMathML()">Update Display</button>
   <button onclick="reformatMathML()">Reformat MathML</button>
-  
+
+<p><button onclick="updateURL()">Update/Copy URL</button></p>
+
   <h3>MathML Font Display</h3>
 
   <!--
