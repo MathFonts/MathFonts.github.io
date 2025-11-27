@@ -129,7 +129,11 @@ hdtr.appendChild(th);
 	const c=n.id.replace('select','*.');
 	const cc=n.id.replace('select','');
 	if(n.checked) {
-	    if(cc=="FontDrop") document.getElementById('fontdragr').style.display="block";
+	    if(cc=="FontDrop") {
+		  document.getElementById('fd-selector').value='.FontDrop, .FontDrop math';
+
+		document.getElementById('fontdragr').style.display="block";
+	    }
 	    Array.from(document.querySelectorAll(c)).forEach(cell=> {
                 cell.style.display='table-cell';
 	    })} else {
