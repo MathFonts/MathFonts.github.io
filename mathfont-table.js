@@ -1,4 +1,5 @@
 const mathfont_list = {
+    "FontDrop": "Drag and Drop Font",
     "Default":  "Default fonts (local only)",
     "STIX": "STIX Two Math",
     "NewComputerModern": "New Computer Modern Math",
@@ -113,7 +114,7 @@ hdtr.appendChild(th);
 		    const inp = document.createElement('input');
 		    inp.type="checkbox";
 		    inp.id="select"+value;
-		    inp.checked=true;
+                    inp.checked=(value!="FontDrop");
 		    inp.setAttribute("onChange","showColumn(this)");
 		    const lb = document.createElement('label');
 		    lb.textContent=value + "   ";
@@ -126,10 +127,13 @@ hdtr.appendChild(th);
     });
     function showColumn(n) {
 	const c=n.id.replace('select','*.');
+	const cc=n.id.replace('select','');
 	if(n.checked) {
+	    if(cc=="FontDrop") document.getElementById('fontdragr').style.display="block";
 	    Array.from(document.querySelectorAll(c)).forEach(cell=> {
                 cell.style.display='table-cell';
-})} else {
+	    })} else {
+		if(cc=="FontDrop") document.getElementById('fontdragr').style.display="none";
 	    Array.from(document.querySelectorAll(c)).forEach(cell=> {
                 cell.style.display='none';
 	    })}	    
