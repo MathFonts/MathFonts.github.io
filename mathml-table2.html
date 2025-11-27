@@ -155,7 +155,8 @@
 		  s=s+"/>";
 	      }
 	  } else {
-	      s=s+i+nn.wholeText.trim();
+	      let t = nn.wholeText.trim();
+	      if(t) s=s+i+t;
 	  }
       });
       return s;
