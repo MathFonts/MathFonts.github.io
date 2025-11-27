@@ -30,6 +30,8 @@ distributed from this site under their original MIT licence.
 [Temml](https://temml.org/)  and
 [AsciiMath2ML](https://johtela.github.io/asciimath2ml).
 
+The site also hosts a local copy (to avoid issues with https mixed content)
+of the [font dragger booklet code from  Ryan Seddon](https://github.com/ryanseddon/font-dragr) (MIT Licensed).
 
 David Carlisle and Neil Soiffer
 
