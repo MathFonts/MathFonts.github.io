@@ -78,6 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	const flow = document.getElementById('flow');
 
 	if(flow) {
+	    let mmlex="<math display=\"block\"><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><msqrt><mi>y</mi></msqrt></math>";
+	    if(mmlP) mmlex=LZString.decompressFromEncodedURIComponent(mmlP);
 	    let i = 0;
 	    for (let value in mathfont_list) {
 		let tb = document.createElement("table");
@@ -86,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if ((fontsP && fontsP.charAt(i)!="Y") || ((!fontsP && value=="FontDrop"))) {
 		    sty=" style=\"display:none\"";
 		}
-		tb.innerHTML=`<table><thead><tr><th class="${value}"${sty}>${mathfont_list[value]}</th></tr></thead><tbody><tr><td class="mml ${value}"${sty}><math display="block"><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><msqrt><mi>y</mi></msqrt></math></td></tr></tbody><table>`;
+		tb.innerHTML=`<table><thead><tr><th class="${value}"${sty}>${mathfont_list[value]}</th></tr></thead><tbody><tr><td class="mml ${value}"${sty}>${mmlex}</td></tr></tbody><table>`;
 		flow.appendChild(tb);
 		i=i+1;
 	    }
