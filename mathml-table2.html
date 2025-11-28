@@ -164,27 +164,6 @@
       return s;
     }
 
-    function updateURL () {
-    var newl="?w=" + minwin.value + "&fonts=";
-    for (let value in mathfont_list) {
-	newl=newl +(document.getElementById("select"+value).checked ?"Y" :"N");
-    }
-    const l= document.getElementById("ltxedit").value
-    const am = document.getElementById("asciimathedit").value;
-    const mml = document.getElementById("mmledit").value;
-    if(l) newl=newl + "&ltx=" + LZString.compressToEncodedURIComponent(l);
-    if(am) newl=newl + "&am=" + LZString.compressToEncodedURIComponent(am);
-    if(mml) newl=newl + "&mml=" + LZString.compressToEncodedURIComponent(mml);
-    // copy to clipboard
-    var nn=document.createElement("textarea");
-    nn.value=document.location.protocol + "//" + document.location.host + document.location.pathname + newl;
-    document.body.appendChild(nn);
-    nn.select();
-    document.execCommand("copy");
-    document.body.removeChild(nn);
-    // update
-    document.location.search = newl;
-    }
 </script>
 <script src="asciimath2ml.js"></script>
 <script src="Temml-0.12.01/dist/temml.min.js"></script>

@@ -49,6 +49,30 @@ const ltxP=urlP.get("ltx");
 const amP=urlP.get("am");
 const mmlP=urlP.get("mml");
 
+function updateURL () {
+    let newl="?";
+    if(typeof minwin == 'string') newl=newl+"w=" + minwin.value + "&";
+    newl=newl+"fonts=";
+    for (let value in mathfont_list) {
+	newl=newl +(document.getElementById("select"+value).checked ?"Y" :"N");
+    }
+    const l= document.getElementById("ltxedit");
+    const am = document.getElementById("asciimathedit");
+    const mml = document.getElementById("mmledit");
+    if(l) newl=newl + "&ltx=" + LZString.compressToEncodedURIComponent(l.value);
+    if(am) newl=newl + "&am=" + LZString.compressToEncodedURIComponent(am.value);
+    if(mml) newl=newl + "&mml=" + LZString.compressToEncodedURIComponent(mml.value);
+    // copy to clipboard
+    var nn=document.createElement("textarea");
+    nn.value=document.location.protocol + "//" + document.location.host + document.location.pathname + newl;
+    document.body.appendChild(nn);
+    nn.select();
+    document.execCommand("copy");
+    document.body.removeChild(nn);
+    // update
+    document.location.search = newl;
+    }
+
 document.addEventListener("DOMContentLoaded", () => {
 
     let sty = document.createElement("style");
@@ -76,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
 	const hdtr = document.getElementById('hdtr');
 	const flow = document.getElementById('flow');
-
+	
 	if(flow) {
 	    let mmlex="<math display=\"block\"><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><msqrt><mi>y</mi></msqrt></math>";
 	    if(mmlP) mmlex=LZString.decompressFromEncodedURIComponent(mmlP);
@@ -93,36 +117,46 @@ document.addEventListener("DOMContentLoaded", () => {
 		i=i+1;
 	    }
 	}
-
+	
 	if (hdtr) {
-      for (let value in mathfont_list) {
-	       let th = document.createElement("th");
-	     th.setAttribute("class",value);
-th.textContent=mathfont_list[value];
-hdtr.appendChild(th);
-      }
-  
-      const rows = Array.from(table.querySelectorAll('tbody tr'));
-      rows.forEach(row => {
-        const cells = Array.from(row.querySelectorAll('td'));
-        // if there are fewer than 4 cells, skip
-        if (cells.length < 4) return;
-        // content to replicate - assume the 4th cell holds the sample
-        const templateHTML = cells[3].innerHTML;
-
-        // remove any cells from index 3 onward (we'll recreate them)
-        for (let i = cells.length - 1; i >= 3; i--) {
-          cells[i].remove();
-        }
-
-        // append a td for each header class (in order)
-     for (let value in mathfont_list) {
-          const td = document.createElement('td');
-          td.className = value;
-          td.innerHTML = templateHTML;
-          row.appendChild(td);
-        };						
-      });
+	 	    let i = 0;
+	    for (let value in mathfont_list) {
+		let th = document.createElement("th");
+		th.setAttribute("class",value);
+		th.textContent=mathfont_list[value];
+		if ((fontsP && fontsP.charAt(i)!="Y") || ((!fontsP && value=="FontDrop"))) {
+		    th.style.display="none";
+		}
+		hdtr.appendChild(th);
+		i=i+1;
+	    }
+	    
+	    const rows = Array.from(table.querySelectorAll('tbody tr'));
+	    rows.forEach(row => {
+		const cells = Array.from(row.querySelectorAll('td'));
+		// if there are fewer than 4 cells, skip
+		if (cells.length < 4) return;
+		// content to replicate - assume the 4th cell holds the sample
+		const templateHTML = cells[3].innerHTML;
+		
+		// remove any cells from index 3 onward (we'll recreate them)
+		for (let i = cells.length - 1; i >= 3; i--) {
+		    cells[i].remove();
+		}
+		
+		// append a td for each header class (in order)
+		let i=0;
+		for (let value in mathfont_list) {
+		    const td = document.createElement('td');
+		    td.className = value;
+		if ((fontsP && fontsP.charAt(i)!="Y") || ((!fontsP && value=="FontDrop"))) {
+		    td.style.display="none";
+		}
+		    td.innerHTML = templateHTML;
+		    row.appendChild(td);
+		    i=i+1;
+		};						
+	    });
 	}
         const fontsel=document.getElementById("fontselector");
 	let i = 0;
