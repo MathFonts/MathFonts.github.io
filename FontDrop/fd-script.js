@@ -19,7 +19,7 @@ var FD = FD || {};
 	function setup() {
 		div.innerHTML = html;
 
-		link.href="bookmarklet/style.css";
+		link.href="FontDrop/style.css";
 		link.rel = "stylesheet";
 		div.appendChild( link );
 		div.appendChild( ss );
@@ -45,7 +45,7 @@ var FD = FD || {};
 		if(!( "querySelectorAll" in doc )) {
 			var script = doc.createElement( "script" );
 
-			script.src = "bookmarklet/qwery.js";
+			script.src = "FontDrop/qwery.js";
 			body.appendChild( script );
 		}
 		FD.ltIE9 = (function(){
@@ -282,7 +282,7 @@ var FD = FD || {};
 				}
 			} else {
 				// Load entire google fonts library
-				loadJSONP("bookmarklet/gwf.js");
+				loadJSONP("FontDrop/gwf.js");
 			}
 		}
 	}
