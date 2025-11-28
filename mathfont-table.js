@@ -40,6 +40,12 @@ let basecss="https://mathfonts.github.io/";
 if(document.location.href.includes("onts.github.io")) {
     basecss="";
 }
+
+const urlP = new URLSearchParams(document.location.search);
+
+const fontsP=urlP.get("fonts");
+const widthP=urlP.get("w");
+
 document.addEventListener("DOMContentLoaded", () => {
 
     let sty = document.createElement("style");
@@ -65,15 +71,22 @@ document.addEventListener("DOMContentLoaded", () => {
 	const table = document.querySelector('table');
 
       
-      const hdtr = document.getElementById('hdtr');
-      const flow = document.getElementById('flow');
+	const hdtr = document.getElementById('hdtr');
+	const flow = document.getElementById('flow');
 
 	if(flow) {
-      for (let value in mathfont_list) {
-	  let tb = document.createElement("table");
-	  tb.setAttribute("class","mml");
-	  tb.innerHTML=`<table><thead><tr><th class="${value}">${mathfont_list[value]}</th></tr></thead><tbody><tr><td class="mml ${value}"><math display="block"><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><msqrt><mi>y</mi></msqrt></math></td></tr></tbody><table>`;
-flow.appendChild(tb);}
+	    let i = 0;
+	    for (let value in mathfont_list) {
+		let tb = document.createElement("table");
+		let sty="";
+		tb.setAttribute("class","mml");
+		if ((fontsP && fontsP.charAt(i)!="Y") || ((!fontsP && value=="FontDrop"))) {
+		    sty=" style=\"display:none\"";
+		}
+		tb.innerHTML=`<table><thead><tr><th class="${value}"${sty}>${mathfont_list[value]}</th></tr></thead><tbody><tr><td class="mml ${value}"${sty}><math display="block"><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><msqrt><mi>y</mi></msqrt></math></td></tr></tbody><table>`;
+		flow.appendChild(tb);
+		i=i+1;
+	    }
 	}
 
 	if (hdtr) {
@@ -107,25 +120,31 @@ hdtr.appendChild(th);
       });
 	}
         const fontsel=document.getElementById("fontselector");
+	let i = 0;
 	for (let value in mathfont_list) {
 	    if(value!="FontDrop" || typeof noFontDrop == 'undefined') {
-		    const sp = document.createElement('span');
-		    const t = document.createTextNode(' ');
-		    sp.style.whiteSpace="nowrap";
-		    const inp = document.createElement('input');
-		    inp.type="checkbox";
-		    inp.id="select"+value;
+		const sp = document.createElement('span');
+		const t = document.createTextNode(' ');
+		sp.style.whiteSpace="nowrap";
+		const inp = document.createElement('input');
+		inp.type="checkbox";
+		inp.id="select"+value;
+		if(fontsP) {
+		    inp.checked=(fontsP.charAt(i)=="Y");
+		} else {
                     inp.checked=(value!="FontDrop");
-		    inp.setAttribute("onChange","showColumn(this)");
-		    const lb = document.createElement('label');
-		    lb.textContent=value + "   ";
-                    lb.setAttribute("for","select"+value);
-		    sp.appendChild(inp);
-		    sp.appendChild(lb);
-		    fontsel.appendChild(sp);
-		    fontsel.appendChild(t);
-	        	}
 		}
+		inp.setAttribute("onChange","showColumn(this)");
+		const lb = document.createElement('label');
+		lb.textContent=value + "   ";
+                lb.setAttribute("for","select"+value);
+		sp.appendChild(inp);
+		sp.appendChild(lb);
+		fontsel.appendChild(sp);
+		fontsel.appendChild(t);
+		i=i+1;
+	    }
+	}
     });
     function showColumn(n) {
 	const c=n.id.replace('select','*.');

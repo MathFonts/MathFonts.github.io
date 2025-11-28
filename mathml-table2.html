@@ -5,6 +5,7 @@
   <title>MathML Fonts Table</title>
 
 <script src="mathfont-table.js"></script>
+<script src="lz-string/lz-string.min.js"></script>
 
 
 <script>
@@ -88,7 +89,6 @@
     p.breadcrumb {font-size: .9rem; border-bottom: solid thin black; max-width:100%}
     p.breadcrumb a {text-decoration:none; color:blue;}
     #fontdragr {display:none;}
-    th.FontDrop,td.FontDrop {display:none;}
 </style>
 <style id="minwcss">th,td{min-width: 15em;}</style>
 
@@ -165,16 +165,16 @@
     }
 
     function updateURL () {
-    var newl="?w=" + minwin.value + "&fonts=,";
+    var newl="?w=" + minwin.value + "&fonts=";
     for (let value in mathfont_list) {
-    if(document.getElementById("select"+value).checked) newl=newl+value+",";
+	newl=newl +(document.getElementById("select"+value).checked ?"Y" :"N");
     }
     const l= document.getElementById("ltxedit").value
     const am = document.getElementById("asciimathedit").value;
     const mml = document.getElementById("mmledit").value;
-    if(l) newl=newl + "&ltx=" + encodeURIComponent(l);
-    if(am) newl=newl + "&am=" + encodeURIComponent(am);
-    if(mml) newl=newl + "&mml=" + encodeURIComponent(mml);
+    if(l) newl=newl + "&ltx=" + LZString.compressToEncodedURIComponent(l);
+    if(am) newl=newl + "&am=" + LZString.compressToEncodedURIComponent(am);
+    if(mml) newl=newl + "&mml=" + LZString.compressToEncodedURIComponent(mml);
     // copy to clipboard
     var nn=document.createElement("textarea");
     nn.value=document.location.protocol + "//" + document.location.host + document.location.pathname + newl;
@@ -265,15 +265,16 @@
    -->
 
  <script>
-const minwv = document.querySelector("#minwvalue");
-const minwin = document.querySelector("#setminw");
-const minwcss = document.querySelector("#minwcss");
-	minwv.textContent = minwin.value;
-minwin.addEventListener("input", (event) => {
-  minwv.textContent = event.target.value;
-    minwcss.textContent = "th,td{min-width: " + event.target.value +"em;}";
-});
-   </script>
+   const minwv = document.querySelector("#minwvalue");
+   const minwin = document.querySelector("#setminw");
+   if(widthP) minwin.value=widthP;
+   const minwcss = document.querySelector("#minwcss");
+   minwv.textContent = minwin.value;
+   minwin.addEventListener("input", (event) => {
+       minwv.textContent = event.target.value;
+       minwcss.textContent = "th,td{min-width: " + event.target.value +"em;}";
+   });
+ </script>
 
    <div id="flow">
    </div>
