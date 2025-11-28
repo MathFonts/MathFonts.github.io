@@ -101,7 +101,8 @@
   }
   function updateASCIIMath() {
       document.getElementById("ltxedit").value="";
-      const am = document.getElementById("asciimathedit").value;
+      // temp fix for sin^2 x
+      const am = document.getElementById("asciimathedit").value.replace(/\b([a-z][a-z][a-z])[^]/g,'$1{}^');
       document.getElementById("mmledit").value=asciiToMathML(am,false,false);
       updateMathML();
   }
