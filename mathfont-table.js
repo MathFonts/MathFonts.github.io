@@ -43,11 +43,20 @@ if(document.location.href.includes("onts.github.io")) {
 
 const urlP = new URLSearchParams(document.location.search);
 
-const fontsP=urlP.get("fonts");
-const widthP=urlP.get("w");
-const ltxP=urlP.get("ltx");
-const amP=urlP.get("am");
-const mmlP=urlP.get("mml");
+let fontsP=urlP.get("fonts");
+if(!fontsP) fontsP=getCookie("mathfonts-fonts");
+
+let widthP=urlP.get("w");
+if(!widthP) widthPP=getCookie("mathfonts-width");
+
+let ltxP=urlP.get("ltx");
+if(!ltxP) ltxP=getCookie("mathfonts-ltx");
+
+let amP=urlP.get("am");
+if(!amP) amP=getCookie("mathfonts-am");
+
+let mmlP=urlP.get("mml");
+if(!mmlP) mmlP=getCookie("mathfonts-mml");
 
 function updateURL () {
     let newl="?";
@@ -71,6 +80,21 @@ function updateURL () {
     document.body.removeChild(nn);
     // update
     document.location.search = newl;
+    }
+
+function updateCookies () {
+    if(typeof minwin == 'object') createCookie("mathfonts-width",minwin.value,100);
+    let f="";
+    for (let value in mathfont_list) {
+	f=f+(document.getElementById("select"+value).checked ?"Y" :"N");
+    }
+    createCookie("mathfonts-fonts",f,100);
+    const l= document.getElementById("ltxedit");
+    const am = document.getElementById("asciimathedit");
+    const mml = document.getElementById("mmledit");
+    if(l)   createCookie("mathfonts-ltx",LZString.compressToEncodedURIComponent(l.value));
+    if(am)  createCookie("mathfonts-am", LZString.compressToEncodedURIComponent(am.value));
+    if(mml) createCookie("mathfonts-mml",LZString.compressToEncodedURIComponent(mml.value));
     }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -211,3 +235,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 cell.style.display='none';
 	    })}	    
     }
+
+
+/*
+  cookie stuff
+*/
+
+
+
+var createCookie = function(name, value, days) {
+    var expires;
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/;SameSite=Lax";
+}
+
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}
+
+
