@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	    });
 	}
         const fontsel=document.getElementById("fontselector");
-	if(fontsP && fontsP.charAt(1)=="Y") document.getElementById("fontdragr").style.display="block";
+	if(fontsP && fontsP.charAt(0)=="Y") document.getElementById("fontdragr").style.display="block";
 	let i = 0;
 	for (let value in mathfont_list) {
 	    if(value!="FontDrop" || typeof noFontDrop == 'undefined') {
