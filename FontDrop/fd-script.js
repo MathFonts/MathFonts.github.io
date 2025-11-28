@@ -35,7 +35,7 @@ var FD = FD || {};
 
 		attach( fonts, "change", changeFont, false );
 		attach( selector, "click", changeFont, false );
-		attach( handle, "click", toggle, false );
+//		attach( handle, "click", toggle, false );
 
 		attach( body, "drop", handleDrop, false );
 		attach( body, "dragenter", preventActions, false );
