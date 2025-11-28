@@ -1,7 +1,7 @@
 const mathfont_list = {
     "FontDrop": "Drag and Drop Font",
     "Default":  "Default fonts (local only)",
-    "STIX": "STIX Two Math",
+    "STIXTwo": "STIX Two Math",
     "NewComputerModern": "New Computer Modern Math",
     "NewComputerModernSans": "New Computer Modern Sans Math",
     "LatinModern": "Latin Modern Math",
