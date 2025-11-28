@@ -45,6 +45,9 @@ const urlP = new URLSearchParams(document.location.search);
 
 const fontsP=urlP.get("fonts");
 const widthP=urlP.get("w");
+const ltxP=urlP.get("ltx");
+const amP=urlP.get("am");
+const mmlP=urlP.get("mml");
 
 document.addEventListener("DOMContentLoaded", () => {
 

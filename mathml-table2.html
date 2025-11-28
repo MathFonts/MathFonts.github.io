@@ -274,6 +274,9 @@
        minwv.textContent = event.target.value;
        minwcss.textContent = "th,td{min-width: " + event.target.value +"em;}";
    });
+   if(ltxP) document.getElementById("ltxedit").value= LZString.decompressFromEncodedURIComponent(ltxP);
+   if(amP)  document.getElementById("asciimathedit").value= LZString.decompressFromEncodedURIComponent(amP);
+   if(mmlP) document.getElementById("mmledit").value= LZString.decompressFromEncodedURIComponent(mmlP);
  </script>
 
    <div id="flow">
