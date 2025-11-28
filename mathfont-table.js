@@ -61,7 +61,11 @@ if(!mmlP) mmlP=getCookie("mathfonts-mml");
 function updateURL () {
     let newl="?";
     if(typeof minwin == 'string') newl=newl+"w=" + minwin.value + "&";
-    newl=newl+"fonts=";
+    newl=newl+"ffff=";
+    for (let value in mathfont_list) {
+	newl=newl +(document.getElementById("select"+value).checked ? value.substring(0,2)+value.substring(2).replace(/[a-z]/g,'')+"," :"");
+    }
+    newl=newl+"&fonts=";
     for (let value in mathfont_list) {
 	newl=newl +(document.getElementById("select"+value).checked ?"Y" :"N");
     }
