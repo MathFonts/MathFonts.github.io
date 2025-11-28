@@ -1,8 +1,4 @@
-/*! font dragr bookmarklet fontdrag.com | fontdragr.com/license.txt */
-
-/* Bookmarklet code
-** javascript:(function(d){var%20s=d.createElement('script'),h=d.head||d.getElementsByTagName('head')[0];s.src='http://fontdragr.com/bookmarklet/fd-script.js';h.appendChild(s);})(document);
-*/
+/* https://fontdragr.js.org/ */
 
 var FD = FD || {};
 

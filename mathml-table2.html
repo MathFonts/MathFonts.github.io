@@ -84,7 +84,8 @@
     .duplicate {
       background-color: #fffacd;
     }
-    p.breadcrumb {font-size: .9rem; border-bottom: solid thin black;}
+    body > p {max-width: 60em;}
+    p.breadcrumb {font-size: .9rem; border-bottom: solid thin black; max-width:100%}
     p.breadcrumb a {text-decoration:none; color:blue;}
     #fontdragr {display:none;}
     th.FontDrop,td.FontDrop {display:none;}
@@ -195,12 +196,18 @@
   <p class="breadcrumb"><a href="index.html">MathFonts.github.io</a></p>
   <h1>MathML Expressions Font Test</h1>
 
-  <p>Show a math expression in a range of math fonts,</p>
+  <h3>Show a math expression in a range of math fonts</h3>
+  
   <p>Math may be entered directly in MathML or the MathML may be
-    generated from LaTeX or AsciiMath syntax. The Convertors are both available
+    generated from LaTeX or AsciiMath syntax. If the FontDrop column
+    is selected, then a local font may be dragged on to the page for testing.<br/>
+    The convertors and font drop code are available
     with MIT licence and hosted on this site.
-   <a href="https://temml.org/">Temml</a>  and
-<a href="https://johtela.github.io/asciimath2ml/">AsciiMath2ML</a>  respectively.</p>
+   <a href="https://temml.org/">Temml</a>,
+   <a href="https://johtela.github.io/asciimath2ml/">AsciiMath2ML</a>
+   and
+   <a href="https://fontdragr.js.org/">font dragr</a>
+   respectively.</p>
 
   <details id="fontselector" open="true">
     <summary><b>Font Column Selection</b></summary>
