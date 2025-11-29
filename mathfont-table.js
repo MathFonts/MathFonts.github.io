@@ -45,6 +45,7 @@ const urlP = new URLSearchParams(document.location.search);
 
 let fontsP=urlP.get("f");
 if(!fontsP) fontsP=getCookie("mathfonts-fonts");
+alert(fontsP);
 
 let widthP=urlP.get("w");
 if(!widthP) widthPP=getCookie("mathfonts-width");
@@ -90,7 +91,7 @@ function updateCookies () {
     if(typeof minwin == 'object') createCookie("mathfonts-width",minwin.value);
     let f=",";
     for (let value in mathfont_list) {
-	f=f + fontShort(value)+",";
+	if(document.getElementById("select"+value).checked)f=f + fontShort(value)+",";
     }
     createCookie("mathfonts-fonts",f);
     const l= document.getElementById("ltxedit");
@@ -110,7 +111,7 @@ function deleteCookies () {
     if(l)   deleteCookie("mathfonts-ltx");
     if(am)  deleteCookie("mathfonts-am");
     if(mml) deleteCookie("mathfonts-mml");
-    document.reload();
+    window.location.reload();
     }
 
 document.addEventListener("DOMContentLoaded", () => {
