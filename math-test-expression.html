@@ -10,7 +10,19 @@
 
 <script>
     function showtab(s) {
-	if (s=='ltx') {hidetab('asciimath');} else {hidetab('ltx');}
+	if (s=='ltx') {
+	    hidetab('asciimath');
+	    hidetab('mml');
+	    document.getElementById("mmlf").style.display='none';
+	} else if (s=='asciimath') {
+	    hidetab('ltx');
+	    hidetab('mml');
+	    document.getElementById("mmlf").style.display='none';
+	} else {
+	    hidetab('ltx');
+	    hidetab('asciimath');
+	    document.getElementById("mmlf").style.display='inline';
+	}
 	const tab=document.getElementById(s+"tab");
 	tab.style.backgroundColor="white";
 	tab.style.zIndex=2;
@@ -188,7 +200,12 @@
    respectively.</p>
 
   <details id="fontselector" open="true">
-    <summary><b>Font Column Selection</b></summary>
+    <summary><b>Settings / Font Selection</b></summary>
+<p>
+  <button onclick="updateURL()">Update/Copy URL</button>
+  <button onclick="updateCookies()">Save State (Cookies)</button>
+  <button onclick="deleteCookies()">Reset State (Delete Cookies)</button>
+</p>
   <p>
     <input id="setminw" type="range" min="0" max="60" step="1" value="15"/>
 <label for="setminw">min width:</label>  <output id="minwvalue"></output>em</p>
@@ -197,32 +214,26 @@
   <p class="tabs">
     <b id="ltxtab" class="tab" onclick="showtab('ltx')">Edit LaTeX</b>
     <b id="asciimathtab" class="tab" onclick="showtab('asciimath')" style="background-color:white;z-index:2;">Edit ASCIIMath</b>
+    <b id="mmltab" class="tab" onclick="showtab('mml')">Edit MathML</b>
   </p>
-  <textarea id="ltxedit"  rows="5" cols="80" spellcheck="false" style="display:none;position:relative">
+  <textarea id="ltxedit"  rows="10" cols="80" spellcheck="false" style="display:none;position:relative">
     \frac{1}{x}+\sqrt{y}
     </textarea>
-  <textarea  id="asciimathedit" rows="5" cols="80" spellcheck="false" style="position:relative;display:block;z-index:1;">
+  <textarea  id="asciimathedit" rows="10" cols="80" spellcheck="false" style="position:relative;display:block;z-index:1;">
       1/x + sqrt y
   </textarea>
-  <button id="ltxb" onclick="updateLaTeX()" style="display:none">Update Display</button>
-  <button id="asciimathb" onclick="updateASCIIMath()" tyle=s"background-color:white;z-index:2;">Update Display</button>
-  
-  <p class="tabs"><b class="tab" style="background-color:white;z-index:2;">Edit MathML</b></p>
-  <textarea  id="mmledit" rows="10" cols="80" spellcheck="false" style="position:relative;display:block;z-index:1;">
+  <textarea  id="mmledit" rows="10" cols="80" spellcheck="false" style="display:none;position:relative">
 <math display="block">
   <mfrac><mn>1</mn><mi>x</mi></mfrac>
   <mo>+</mo>
   <msqrt><mi>y</mi></msqrt>
 </math>
   </textarea>  
-  <button onclick="updateMathML()">Update Display</button>
-  <button onclick="reformatMathML()">Reformat MathML</button>
+  <button id="ltxb" onclick="updateLaTeX()" style="display:none">Update Display</button>
+  <button id="asciimathb" onclick="updateASCIIMath()" tyle=s"background-color:white;z-index:2;">Update Display</button> 
+  <button id="mmlb" onclick="updateMathML()">Update Display</button>
+  <button id="mmlf" onclick="reformatMathML()">Reformat MathML</button>
 
-<p>
-  <button onclick="updateURL()">Update/Copy URL</button>
-  <button onclick="updateCookies()">Save State (Cookies)</button>
-  <button onclick="deleteCookies()">Reset State (Delete Cookies)</button>
-</p>
 
   <h3>MathML Font Display</h3>
 
