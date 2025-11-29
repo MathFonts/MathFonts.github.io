@@ -2,7 +2,7 @@
   https://johtela.github.io/asciimath2ml/README.html
   ASCIIMath to MathML
   MIT License
-  Copyright © 2024 Tommi Johtela
+  Copyright © 2025 Tommi Johtela
   
   
   https://github.com/johtela/asciimath2ml/blob/master/src/index.ts
@@ -492,8 +492,17 @@ function rightBracket(input, output) {
  */
 function unaryParser(oper) {
   return scanner => {
+    let [sub, sup] = subSupParser(scanner)
+    let soper =
+      sub && sup
+        ? /*html*/ `<msubsup>${oper}${sub}${sup}</msubsup>`
+        : sub
+        ? /*html*/ `<msub>${oper}${sub}</msub>`
+        : sup
+        ? /*html*/ `<msup>${oper}${sup}</msup>`
+        : oper
     let arg = sexprParser(scanner)
-    return /*html*/ `<mrow>${oper}${arg}</mrow>`
+    return /*html*/ `<mrow>${soper}${arg}</mrow>`
   }
 }
 /**
@@ -719,18 +728,7 @@ function sexprParser(scanner) {
  */
 function iexprParser(scanner) {
   let [res, sym] = parseSExpr(scanner)
-  let sub
-  let sup
-  let [next, pos] = scanner.peekSymbol()
-  if (next.input == "_") {
-    scanner.pos = pos
-    sub = sexprParser(scanner)
-    ;[next, pos] = scanner.peekSymbol()
-  }
-  if (next.input == "^") {
-    scanner.pos = pos
-    sup = sexprParser(scanner)
-  }
+  let [sub, sup] = subSupParser(scanner)
   if (sym.kind == SymbolKind.UnderOver)
     return sub && sup
       ? /*html*/ `<munderover>${res}${sub}${sup}</munderover>`
@@ -747,6 +745,24 @@ function iexprParser(scanner) {
       : sup
       ? /*html*/ `<msup>${res}${sup}</msup>`
       : res
+}
+/**
+ * Parse the subscript and superscript expressions, if they exist.
+ */
+function subSupParser(scanner) {
+  let sub
+  let sup
+  let [next, pos] = scanner.peekSymbol()
+  if (next.input == "_") {
+    scanner.pos = pos
+    sub = sexprParser(scanner)
+    ;[next, pos] = scanner.peekSymbol()
+  }
+  if (next.input == "^") {
+    scanner.pos = pos
+    sup = sexprParser(scanner)
+  }
+  return [sub, sup]
 }
 /**
  * ### Expressions
