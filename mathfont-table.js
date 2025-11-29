@@ -272,7 +272,8 @@ var createCookie = function(name, value) {
     else {
         expires = "";
     }
-    document.cookie = name + "=" + value + expires + "; SameSite=Lax";
+    document.cookie = name + "=" + value + expires + "; path=" + document.location.href +"; SameSite=Lax";
+//    document.cookie = name + "=" + value + expires + "; SameSite=Lax";
 }
 
 var deleteCookie = function(name) {
