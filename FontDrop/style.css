@@ -6,7 +6,7 @@ html,body { height: 100% }
 	color: #ECECEC;
 	border-bottom: 15px solid #BB5316;
 	font: 14px Verdana, Arial, Helvetica, sans-serif;
-	height: 114px;
+	height: 80px;
 	*height: 69px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -19,18 +19,11 @@ html,body { height: 100% }
 	float: left;
 	font-size: 3.077em; /* 40px */
 	line-height: 1em;
-	padding: 36px 10px 5px;
+	padding: 18px 10px 5px;
 	margin: -15px 20px 0 10px;
 	text-shadow: 1px 1px 3px #394C5F;
 	width: 60px;
 	text-align: center;
-	
-	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
 }
 #fontdragr label, #fontdragr select, #fontdragr input, #fontdragr button {
 	display: block;
