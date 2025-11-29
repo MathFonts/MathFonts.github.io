@@ -88,9 +88,9 @@ function updateURL () {
 
 function updateCookies () {
     if(typeof minwin == 'object') createCookie("mathfonts-width",minwin.value);
-    let f="";
+    let f=",";
     for (let value in mathfont_list) {
-	f=f+(document.getElementById("select"+value).checked ?"Y" :"N");
+	f=f + fontShort(value)+",";
     }
     createCookie("mathfonts-fonts",f);
     const l= document.getElementById("ltxedit");
@@ -110,6 +110,7 @@ function deleteCookies () {
     if(l)   deleteCookie("mathfonts-ltx");
     if(am)  deleteCookie("mathfonts-am");
     if(mml) deleteCookie("mathfonts-mml");
+    document.reload();
     }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -273,7 +274,7 @@ var createCookie = function(name, value) {
 }
 
 var deleteCookie = function(name) {
-    document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax";
+    document.cookie = name + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax";
 }
 
 function getCookie(c_name) {
