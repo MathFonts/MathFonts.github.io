@@ -249,8 +249,11 @@
  <script>
    const minwv = document.querySelector("#minwvalue");
    const minwin = document.querySelector("#setminw");
-   if(widthP) minwin.value=widthP;
    const minwcss = document.querySelector("#minwcss");
+   if(widthP) {
+       minwin.value=widthP;
+       minwcss.textContent = "th,td{min-width: " + widthP  +"em;}";
+   }
    minwv.textContent = minwin.value;
    minwin.addEventListener("input", (event) => {
        minwv.textContent = event.target.value;
