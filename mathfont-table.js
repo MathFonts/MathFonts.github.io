@@ -45,7 +45,6 @@ const urlP = new URLSearchParams(document.location.search);
 
 let fontsP=urlP.get("f");
 if(!fontsP) fontsP=getCookie("mathfonts-fonts");
-alert(fontsP);
 
 let widthP=urlP.get("w");
 if(!widthP) widthPP=getCookie("mathfonts-width");
