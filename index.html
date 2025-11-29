@@ -78,23 +78,12 @@
 
   </dl>
 
-  <h2>Using OpenType fonts with LaTeX</h2>
-
- <p>OpenType math fonts are most commonly used via
-   the <code>unicode-math</code> package with LuaLaTeX or XeLaTeX. The
-   majority of the fonts are already distributed with the TeX
-   distributions, however some newer fonts that are not in TeXLive but
-   do have licenses allowing free distribution are included in this
-   repository in OTF form and may be copied to your local TeX
-   system. An example showing how to reference all the fonts used here
-   is given below.</p>
-
   <h2>Testing OTF Fonts with LuaTeX</h2>
   <dl>
     <dt><a href="pdf-math-samples">LuaLaTeX Sample Generator</a></dt>
     <dd>LaTeX Table generator with a similar interface to the MathML tests.
       Select the desired fonts and a test LaTeX expression and a (wide or tall) PDF document
-      will be generated at texlive.net in a new tab.</dd>
+      will be generated at <a href="https://texlive.net">TeXLive.net</a> in a new tab.</dd>
     <dt><a href="https://texlive.net/run?%25%20!TeX%20lualatex%0A%5Cdocumentclass%7Barticle%7D%0A%0A%5Cusepackage%7Bunicode-math%7D%0A%0A%25%20uncomment%20one%20font%0A%5Csetmathfont%0A%25%7BSTIXTwoMath-Regular.otf%7D%0A%25%7BNewCMMath-Book.otf%7D%0A%25%7BNewCMSansMath-Regular.otf%7D%0A%25%7Blatinmodern-math.otf%7D%0A%25%7BAsana-Math.otf%7D%0A%25%7BDejaVuMathTeXGyre.otf%7D%0A%25%7BFiraMath-Regular.otf%7D%0A%25%7BGaramond-Math.otf%7D%0A%25%7BGFSNeohellenicMath.otf%7D%0A%25%7BLeteSansMath.otf%7D%0A%25%7Blibertinusmath-regular.otf%7D%0A%25%7Btexgyrebonum-math.otf%7D%0A%25%7Btexgyrepagella-math.otf%7D%0A%25%7Btexgyreschola-math.otf%7D%0A%25%7Btexgyretermes-math.otf%7D%0A%25%7BXITSMath-Regular.otf%7D%0A%25%7BNotoSansMath-Regular.otf%7D%0A%25%7BArsenalMath-Sans.otf%7D%0A%25%7BIBMPlexMath-Regular.otf%7D%0A%25%7BErewhon-Math.otf%7D%0A%25%7BOldStandard-Math.otf%7D%0A%25%7BXCharter-Math.otf%7D%0A%25%7BKpMath-Regular.otf%7D%0A%25%7BKpMath-Sans.otf%7D%0A%25%7BPennstanderMath-Regular.otf%7D%0A%25%7BLuciole-Math.otf%7D%0A%25%7BConcrete-Math.otf%7D%0A%25%7BEuler-Math.otf%7D%0A%7BNagwaTKMath-Regular.otf%7D%25%20Use%20Nagwa%20TK%0A%0A%5Cbegin%7Bdocument%7D%0A%5Cbegin%7Bgather%7D%0A%20%20%5Cint_a%5Eb%20%5Ccos%20%5Ctheta%20%5C,d%5Ctheta%20=%20%5Csin%20b%20-%20%5Csin%20a%0A%20%5C%5C%0A%20%20%5Cbegin%7Bpmatrix%7D%0A%20%20%20%20a&b%5C%5Cx&y%0A%20%20%5Cend%7Bpmatrix%7D%0A%20%20%20+%0A%20%5Cbegin%7Bpmatrix%7D%0A%20%20%20%201&2%5C%5C3&4%0A%20%20%5Cend%7Bpmatrix%7D%0A%20%20=%0A%20%20%5Cbegin%7Bpmatrix%7D%0A%20%20%20%20a+1&b+2%5C%5Cx+3&y+4%0A%20%20%5Cend%7Bpmatrix%7D%0A%5Cend%7Bgather%7D%0A%0A%5Cend%7Bdocument%7D%0A">Testing with LuaLaTeX</a></dt>
     <dd>All the freely available fonts described here are installed at <a href="https://texlive.net">TeXLive.net</a> The above link leads to an editable test file that shows the outcome of using the fonts with LuaLaTeX.</dd>
     </dl>
@@ -108,6 +97,14 @@
   conversion was done using the fontforge font editor which can save
   fonts in a variety of formats.</p>
   <hr/>
+
+  <h2>Documentation of Opentype Math Layout</h2>
+<ul>
+  <li><a href="https://github.com/notofonts/math/blob/main/documentation/building-math-fonts/index.md">Building OpenType math fonts</a> Khaled Hosny's detailed explanation of the OpenType MATH Table.</li>
+  <li><a href="https://www.tug.org/~vieth/papers/bachotex2009/ot-math-paper.pdf">OpenType Math illuminated</a> Urik Vieth's description and comparison with TeX math parameters.</li>
+<li><a href="https://learn.microsoft.com/en-us/typography/opentype/spec/math">MATH - The Mathematical Typesetting Table</a> MicroSoft's documentation of the MATH table structure in OpenType.</li>
+  <li><a href="https://www.w3.org/TR/mathml-core/">MathML Core</a> The MathML Core draft discusses the specific parts of the OpenType Math specification that should be implemented by browser MathML implementations.</li>
+</ul>
 
   <hr/>
 
