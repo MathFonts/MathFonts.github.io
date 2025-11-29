@@ -43,7 +43,7 @@ if(document.location.href.includes("onts.github.io")) {
 
 const urlP = new URLSearchParams(document.location.search);
 
-let fontsP=urlP.get("fonts");
+let fontsP=urlP.get("f");
 if(!fontsP) fontsP=getCookie("mathfonts-fonts");
 
 let widthP=urlP.get("w");
@@ -58,16 +58,16 @@ if(!amP) amP=getCookie("mathfonts-am");
 let mmlP=urlP.get("mml");
 if(!mmlP) mmlP=getCookie("mathfonts-mml");
 
+function fontShort(n){
+    return n.substring(0,2)+n.substring(2).replace(/[a-z]/g,'');
+}
+
 function updateURL () {
     let newl="?";
-    if(typeof minwin == 'string') newl=newl+"w=" + minwin.value + "&";
-    newl=newl+"ffff=";
+    if(typeof minwin == 'object') newl=newl+"w=" + minwin.value + "&";
+    newl=newl+"f=,";
     for (let value in mathfont_list) {
-	newl=newl +(document.getElementById("select"+value).checked ? value.substring(0,2)+value.substring(2).replace(/[a-z]/g,'')+"," :"");
-    }
-    newl=newl+"&fonts=";
-    for (let value in mathfont_list) {
-	newl=newl +(document.getElementById("select"+value).checked ?"Y" :"N");
+	newl=newl +(document.getElementById("select"+value).checked ? fontShort(value)+"," :"");
     }
     const l= document.getElementById("ltxedit");
     const am = document.getElementById("asciimathedit");
@@ -87,12 +87,12 @@ function updateURL () {
     }
 
 function updateCookies () {
-    if(typeof minwin == 'object') createCookie("mathfonts-width",minwin.value,100);
+    if(typeof minwin == 'object') createCookie("mathfonts-width",minwin.value);
     let f="";
     for (let value in mathfont_list) {
 	f=f+(document.getElementById("select"+value).checked ?"Y" :"N");
     }
-    createCookie("mathfonts-fonts",f,100);
+    createCookie("mathfonts-fonts",f);
     const l= document.getElementById("ltxedit");
     const am = document.getElementById("asciimathedit");
     const mml = document.getElementById("mmledit");
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		let tb = document.createElement("table");
 		let sty="";
 		tb.setAttribute("class","mml");
-		if ((fontsP && fontsP.charAt(i)!="Y") || ((!fontsP && value=="FontDrop"))) {
+		if ((fontsP && !fontsP.includes(","+fontShort(value)+",")) || ((!fontsP && value=="FontDrop"))) {
 		    sty=" style=\"display:none\"";
 		}
 		tb.innerHTML=`<table><thead><tr><th class="${value}"${sty}>${mathfont_list[value]}</th></tr></thead><tbody><tr><td class="mml ${value}"${sty}>${mmlex}</td></tr></tbody><table>`;
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		let th = document.createElement("th");
 		th.setAttribute("class",value);
 		th.textContent=mathfont_list[value];
-		if ((fontsP && fontsP.charAt(i)!="Y") || ((!fontsP && value=="FontDrop"))) {
+		if ((fontsP && !fontsP.includes(","+fontShort(value)+",")) || ((!fontsP && value=="FontDrop"))) {
 		    th.style.display="none";
 		}
 		hdtr.appendChild(th);
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		for (let value in mathfont_list) {
 		    const td = document.createElement('td');
 		    td.className = value;
-		if ((fontsP && fontsP.charAt(i)!="Y") || ((!fontsP && value=="FontDrop"))) {
+		    if ((fontsP && !fontsP.includes(","+fontShort(value)+",")) || ((!fontsP && value=="FontDrop"))) {
 		    td.style.display="none";
 		}
 		    td.innerHTML = templateHTML;
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	    });
 	}
         const fontsel=document.getElementById("fontselector");
-	if(fontsP && fontsP.charAt(0)=="Y") document.getElementById("fontdragr").style.display="block";
+	if(fontsP && fontsP.includes(",FoD,")) document.getElementById("fontdragr").style.display="block";
 	let i = 0;
 	for (let value in mathfont_list) {
 	    if(value!="FontDrop" || typeof noFontDrop == 'undefined') {
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		inp.type="checkbox";
 		inp.id="select"+value;
 		if(fontsP) {
-		    inp.checked=(fontsP.charAt(i)=="Y");
+		    inp.checked=fontsP.includes(","+fontShort(value)+",");
 		} else {
                     inp.checked=(value!="FontDrop");
 		}
@@ -247,8 +247,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-var createCookie = function(name, value, days) {
+var createCookie = function(name, value) {
     var expires;
+    let days=100
     if (days) {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -257,7 +258,7 @@ var createCookie = function(name, value, days) {
     else {
         expires = "";
     }
-    document.cookie = name + "=" + value + expires + "; path=/;SameSite=Lax";
+    document.cookie = name + "=" + value + expires + "; path=document.location.href;SameSite=Lax";
 }
 
 function getCookie(c_name) {
