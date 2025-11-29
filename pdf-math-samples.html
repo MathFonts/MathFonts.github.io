@@ -127,7 +127,11 @@ ${lh? '&' : ''}\flLIST\flSHOW
 
   <details id="fontselector" open>
     <summary><b>Font Column Selection</b></summary>
-  <p>
+      <button onclick="updateURL()">Update/Copy URL</button>
+      <button onclick="updateCookies()">Save State (Cookies)</button>
+      <button onclick="deleteCookies()">Reset State (Delete Cookies)</button>
+</p>
+<p>
     <input type="radio" name="layout" id="lh" checked/><label for="lh">Horizontal</label>
     <input type="radio" name="layout" id="lv"        /><label for="lv">Vertical</label>
   </p>
