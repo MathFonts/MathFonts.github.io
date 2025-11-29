@@ -67,7 +67,8 @@ function updateURL () {
     if(typeof minwin == 'object') newl=newl+"w=" + minwin.value + "&";
     newl=newl+"f=,";
     for (let value in mathfont_list) {
-	newl=newl +(document.getElementById("select"+value).checked ? fontShort(value)+"," :"");
+	let inp = document.getElementById("select"+value);
+	newl=newl +(inp && inp.checked ? fontShort(value)+"," :"");
     }
     const l= document.getElementById("ltxedit");
     const am = document.getElementById("asciimathedit");
@@ -90,7 +91,8 @@ function updateCookies () {
     if(typeof minwin == 'object') createCookie("mathfonts-width",minwin.value);
     let f=",";
     for (let value in mathfont_list) {
-	if(document.getElementById("select"+value).checked)f=f + fontShort(value)+",";
+	let inp = document.getElementById("select"+value);
+	if(inp && inp.checked)f=f + fontShort(value)+",";
     }
     createCookie("mathfonts-fonts",f);
     const l= document.getElementById("ltxedit");
