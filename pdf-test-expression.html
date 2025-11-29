@@ -5,6 +5,7 @@
   <title>LuaLaTeX OpenType Fonts Table</title>
 <script> const noFontDrop=true;</script>
 <script src="mathfont-table.js"></script>
+<script src="lz-string/lz-string.min.js"></script>
 
 <style>
     table {
@@ -161,6 +162,7 @@ ${lh? '&' : ''}\flLIST\flSHOW
     
 <script>
   if(layoutP=="v") document.getElementById("lv").checked=true;
+  if(ltxP) document.getElementById("ltxedit").value= LZString.decompressFromEncodedURIComponent(ltxP);
 </script>
 
 </body>
