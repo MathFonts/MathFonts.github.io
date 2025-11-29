@@ -134,8 +134,8 @@ ${lh? '&' : ''}\flLIST\flSHOW
 <p>
     <input type="radio" name="layout" id="lh" checked/><label for="lh">Horizontal</label>
     <input type="radio" name="layout" id="lv"        /><label for="lv">Vertical</label>
-  </p>
-  </details>
+</p>
+</details>
 
   <h3>LaTeX Expression</h3>
   <textarea id="ltx" rows="10" cols="80">
@@ -159,6 +159,9 @@ ${lh? '&' : ''}\flLIST\flSHOW
   <p>Select the fonts to be tested. Edit the LaTeX expression.<br/>
     Then submit the form to generate a PDF table in a new tab.</p>
     
+<script>
+  if(layoutP=="v") document.getElementById("lv").checked=true;
+</script>
 
 </body>
 </html>

@@ -47,7 +47,10 @@ let fontsP=urlP.get("f");
 if(!fontsP) fontsP=getCookie("mathfonts-fonts");
 
 let widthP=urlP.get("w");
-if(!widthP) widthPP=getCookie("mathfonts-width");
+if(!widthP) widthP=getCookie("mathfonts-width");
+
+let layoutP=urlP.get("l");
+if(!layoutP) laoutP=getCookie("mathfonts-layout");
 
 let ltxP=urlP.get("ltx");
 if(!ltxP) ltxP=getCookie("mathfonts-ltx");
@@ -65,6 +68,8 @@ function fontShort(n){
 function updateURL () {
     let newl="?";
     if(typeof minwin == 'object') newl=newl+"w=" + minwin.value + "&";
+    let hlayout=document.getElementById("lh");
+    if (hlayout) newl=newl+"l="+(hlayout.checked?"h":"v")+"&";
     newl=newl+"f=,";
     for (let value in mathfont_list) {
 	let inp = document.getElementById("select"+value);
@@ -89,6 +94,8 @@ function updateURL () {
 
 function updateCookies () {
     if(typeof minwin == 'object') createCookie("mathfonts-width",minwin.value);
+    let hlayout=document.getElementById("lh");
+    if (hlayout) createCookie("mathfonts-layout",(hlayout.checked?"h":"v"));
     let f=",";
     for (let value in mathfont_list) {
 	let inp = document.getElementById("select"+value);
