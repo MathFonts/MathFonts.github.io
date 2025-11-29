@@ -284,7 +284,8 @@ var createCookie = function(name, value) {
 }
 
 var deleteCookie = function(name) {
-    document.cookie = name + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax";
+    document.cookie = name + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT; path=" + document.location.pathname +"; SameSite=Lax";
+//    document.cookie = name + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax";
 }
 
 function getCookie(c_name) {
