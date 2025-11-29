@@ -48,7 +48,7 @@
 \aboverulesep=7pt
 \belowrulesep=7pt
 
-\def\flEXP{${document.getElementById('ltx').value}}
+\def\flEXP{${document.getElementById('ltxedit').value}}
 
 \def\flLIST#1{%
 ${checkfont('STIXTwo')}{STIXTwoMath-Regular.otf}
@@ -138,7 +138,7 @@ ${lh? '&' : ''}\flLIST\flSHOW
 </details>
 
   <h3>LaTeX Expression</h3>
-  <textarea id="ltx" rows="10" cols="80">
+  <textarea id="ltxedit" rows="10" cols="80">
     x^2+y^2 \\
     \int_0^1 \cos \theta \,d\theta
   </textarea>
