@@ -13,15 +13,12 @@
 	if (s=='ltx') {
 	    hidetab('asciimath');
 	    hidetab('mml');
-	    document.getElementById("mmlf").style.display='none';
 	} else if (s=='asciimath') {
 	    hidetab('ltx');
 	    hidetab('mml');
-	    document.getElementById("mmlf").style.display='none';
 	} else {
 	    hidetab('ltx');
 	    hidetab('asciimath');
-	    document.getElementById("mmlf").style.display='inline';
 	}
 	const tab=document.getElementById(s+"tab");
 	tab.style.backgroundColor="white";
@@ -106,6 +103,7 @@
 
 <script>
   function updateMathML() {
+      reformatMathML();
       const cells = Array.from(document.querySelectorAll('td.mml'));
       const mml = document.getElementById("mmledit").value;
       for (let i =0; i < cells.length;i++) {
@@ -133,27 +131,31 @@
       mmldiv.innerHTML=mmle.value;
       const c = mmldiv.children;
       if(c.length != 1 || c[0].localName != "math") {
-          mmlnew='<math display="block">\n' + mmlIndent(c,0) + '\n</math>';
+          mmlnew='<math display="block">' + mmlIndent(c,0) + '\n</math>';
       } else {
 	  mmlnew=mmlIndent(c,"\n");
       }
-      mmle.value=mmlnew;
+      if(mmlnew.charAt(0)=="\n") {
+	  mmle.value=mmlnew.substring(1);
+      } else {
+	  mmle.value=mmlnew
+      }
   }
 
   function mmlIndent(n,i) {
-      var s=""
+      let s="";
       Array.from(n).forEach(nn => {
 	  if (nn.nodeType==1) {
-	  s=s+ i+ "<" + nn.localName;
-	  const atts=nn.attributes;
-	  if(atts){
-	      for(var j=0;j<atts.length;j++) {
-		  const ln =atts[j].localName;
-		  if(ln!="id" && ln!="class") {
-		      s=s+" " + ln +'="'+atts[j].value+'"';
+	      s=s+ i + "<" + nn.localName;
+	      const atts=nn.attributes;
+	      if(atts){
+		  for(var j=0;j<atts.length;j++) {
+		      const ln =atts[j].localName;
+		      if(ln!="id" && ln!="class") {
+			  s=s+" " + ln +'="'+atts[j].value+'"';
+		      }
 		  }
 	      }
-	  }
 	      const nnc=nn.childNodes
 	      if (nnc.length) {
 		  s=s+">"+
@@ -169,11 +171,11 @@
 	      }
 	  } else if (nn.nodeType==3) {
 	      let t = nn.wholeText.trim();
-	      if(t) s=s+i+t;
+	      if(t) s=s+i+"?" +t;
 	  }
       });
       return s;
-    }
+  }
 
 </script>
 <script src="asciimath2ml.js"></script>
@@ -232,7 +234,6 @@
   <button id="ltxb" onclick="updateLaTeX()" style="display:none">Update Display</button>
   <button id="asciimathb" onclick="updateASCIIMath()" tyle=s"background-color:white;z-index:2;">Update Display</button> 
   <button id="mmlb" onclick="updateMathML()" style="display:none">Update Display</button>
-  <button id="mmlf" onclick="reformatMathML()" style="display:none">Reformat MathML</button>
 
 
   <h3>MathML Font Display</h3>
