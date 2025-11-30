@@ -131,7 +131,7 @@
       mmldiv.innerHTML=mmle.value;
       const c = mmldiv.children;
       if(c.length != 1 || c[0].localName != "math") {
-          mmlnew='<math display="block">' + mmlIndent(c,0) + '\n</math>';
+          mmlnew='<math display="block">' + mmlIndent(c,"\n") + '\n</math>';
       } else {
 	  mmlnew=mmlIndent(c,"\n");
       }
@@ -156,14 +156,15 @@
 		      }
 		  }
 	      }
-	      const nnc=nn.childNodes
+	      const nnc=nn.childNodes;
+	      const nexti= (nn.querySelectorAll('*').length < 5 ? "" : i +" ");
 	      if (nnc.length) {
 		  s=s+">"+
 		      ((nnc.length==1 && nnc[0].nodeType==3)
 		       ?
 		       nnc[0].wholeText.trim()
 		       :
-		       `${mmlIndent(nnc,i+" ")}${i}`
+		       `${mmlIndent(nnc,nexti)}${nexti=="" ? "" : i}`
 		      ) +
 		      "</" + nn.localName + ">";
 	      } else {
