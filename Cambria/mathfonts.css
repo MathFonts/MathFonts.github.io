@@ -33,7 +33,7 @@ Some Web services may also provide them as Web fonts. For details, see
 }
 @font-face {
     font-family: Cambria Math;
-    src: local('Cambria Math'), url('...');
+    src: local('Cambria Math');
 }
 */
 

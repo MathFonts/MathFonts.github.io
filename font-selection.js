@@ -4,7 +4,7 @@ const mathfont_list = {
     "NewComputerModern": "New Computer Modern Math",
     "NewComputerModernSans": "New Computer Modern Sans Math",
     "LatinModern": "Latin Modern Math",
-    "Cambria": "Cambria (local only)",
+    "Cambria": "Cambria Math (local only)",
     "Asana": "Asana Math",
     "DejaVu": "DejaVu Math TeX Gyre",
     "FiraMath": "Fira Math",
