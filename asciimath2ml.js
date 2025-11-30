@@ -1280,5 +1280,5 @@ function asciiToMathML(
   let scanner = new Scanner(input, symbols, escapePunctuation)
   return /*html*/ `<math display="${
     inline ? "inline" : "block"
-  }"><mstyle displaystyle="true">${exprParser(scanner)}</mstyle></math>`
+  }">${exprParser(scanner)}</math>`
 }
