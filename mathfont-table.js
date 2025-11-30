@@ -119,7 +119,7 @@ function deleteCookies () {
     if(l)   deleteCookie("mathfonts-ltx");
     if(am)  deleteCookie("mathfonts-am");
     if(mml) deleteCookie("mathfonts-mml");
-    window.location.reload();
+    window.location.search="";
     }
 
 document.addEventListener("DOMContentLoaded", () => {
