@@ -1,5 +1,5 @@
 #!/bin/bash
-for i  in `ls */*ath*woff2 NagwaTK/NagwaTKMath-Regular.otf| grep -v Bold`
+for i  in `ls Na*/*ath*woff2 | grep -v Bold`
 do
 d=`dirname $i`
 python3 GenerateHTMLTest.py $d `basename $i` > $d/CheckFontLog.txt 2> $d/CheckFontError.txt

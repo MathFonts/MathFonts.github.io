@@ -1,13 +1,12 @@
 /*
-OTF font under 
+Woff2 font under 
 Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
 (CC BY-NC-ND 4.0
-waiting for confirmation to see if woff2 may be used
 */
 @namespace url('http://www.w3.org/1999/xhtml');
 @namespace m url('http://www.w3.org/1998/Math/MathML');
 
 @font-face {
     font-family: Nagwa TK Math;
-    src: url("NagwaTKMath-Regular.otf") format("opentype");
+    src: url("NagwaTKMath-Regular.woff2"));
  
