@@ -10,8 +10,13 @@
           for (let value in mathfont_list) {
               if (value == "Default")
                   continue;
+	      if(mathfont_list[value].includes("(")) {
+              font_data.insertAdjacentHTML("beforeend",
+                                           `<li>${mathfont_list[value]}</li>`);
+	      } else {
               font_data.insertAdjacentHTML("beforeend",
                                            `<li><a href="${value}/">${mathfont_list[value]}</a></li>`);
+	      }
           }
       });
       </script>
