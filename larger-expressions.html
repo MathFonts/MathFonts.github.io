@@ -8,17 +8,6 @@
       math {font-family: DejaVu Math TeX Gyre;}
 </style>
     <script type="text/javascript" src="./font-selection.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-          let font_data = document.getElementById("font_data");
-          for (let value in mathfont_list) {
-              if (value == "Default")
-                  continue;
-              font_data.insertAdjacentHTML("beforeend",
-                                           `<li><a href="${value}/">${mathfont_list[value]}</a></li>`);
-          }
-      });
-      </script>
     <style>
     p.breadcrumb {font-size: .9rem; border-bottom: solid thin black;}
     p.breadcrumb a {text-decoration:none; color:blue;}
@@ -98,9 +87,7 @@ followed by inline expressions like <math xmlns="http://www.w3.org/1998/Math/Mat
 
     </p>
 
-    <p id="testcase_individual">To go further, you can check available data for each font:</p>
-    <ul id="font_data">
-    </ul>
+    <p id="testcase_individual">To go further, you can check the <a href="woff2-list">available data for each font</a>.</p>
 
   </body>
 </html>
