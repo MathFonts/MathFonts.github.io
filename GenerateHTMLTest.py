@@ -601,7 +601,13 @@ def main(aDirectory, aFont):
 <html><head><title>%s</title><meta charset=\"utf-8\"/>\n\
   <link rel=\"stylesheet\" type=\"text/css\" href=\"./mathfonts.css\"/>\n\
   %s\n\
-  <body class=\"htmlmathparagraph\">\n\
+    <style>\n\
+    p.breadcrumb {font-size: .9rem; border-bottom: solid thin black;}\n\
+    p.breadcrumb a {text-decoration:none; color:blue;}\n\
+   </style>\n\
+   </head>\n\
+    <body class=\"htmlmathparagraph\">\n\
+    <p class=\"breadcrumb\"><a href=\"../\">MathFonts.github.io</a></p>\n\
     <h1>%s</h1>\n\
     <a href=\"./CheckFontLog.txt\">CheckFontLog.txt</a> - \
     <a href=\"./CheckFontError.txt\">CheckFontError.txt</a>" %

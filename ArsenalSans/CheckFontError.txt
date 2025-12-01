@@ -1,0 +1,23 @@
+Program root: /usr
+The glyph named lparen is mapped to U+0028.
+But its name indicates it should be mapped to U+24A7.
+The glyph named rparen is mapped to U+0029.
+But its name indicates it should be mapped to U+24AD.
+The glyph named bar is mapped to U+0304.
+But its name indicates it should be mapped to U+007C.
+The glyph named gimel is mapped to U+2137.
+But its name indicates it should be mapped to U+05D2.
+The glyph named linefeed is mapped to U+21B4.
+But its name indicates it should be mapped to U+240A.
+The glyph named oslash is mapped to U+2298.
+But its name indicates it should be mapped to U+00F8.
+The glyph named cdot is mapped to U+22C5.
+But its name indicates it should be mapped to U+010B.
+The glyph named smile is mapped to U+2323.
+But its name indicates it should be mapped to U+263A.
+The glyph named triangleright is mapped to U+25B7.
+But its name indicates it should be mapped to U+22B2.
+The glyph named triangleleft is mapped to U+25C1.
+But its name indicates it should be mapped to U+22B3.
+The glyph named rhook is mapped to U+E08F.
+But its name indicates it should be mapped to U+027D.

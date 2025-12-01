@@ -5,13 +5,13 @@
 COMPRESS=@PYTHON@ ../compress-font.py
 
 # Build all the open source fonts
-all: Asana DejaVu FiraMath Garamond GFSNeoHellenic LatinModern LeteSansMath Libertinus NewComputerModern NewComputerModernSans STIX TeXGyreBonum TeXGyrePagella TeXGyreSchola TeXGyreTermes XITS
+all: Asana DejaVu FiraMath Garamond GFSNeoHellenic LatinModern LeteSansMath Libertinus NewComputerModern NewComputerModernSans STIXTwo TeXGyreBonum TeXGyrePagella TeXGyreSchola TeXGyreTermes XITS
 
 # Make all the commands for font generations PHONY as they are very fast.
 # The download operations are slower and will only be performed once.
 # FIXME: This is no longer true with woff2 compression.
 # See https://github.com/fred-wang/MathFonts/issues/5
-.PHONY: clean distclean Asana DejaVu FiraMath Garamond GFSNeoHellenic LatinModern LeteSansMath Libertinus NeoEuler NewComputerModern NewComputerModernSans STIX TeXGyreBonum TeXGyrePagella TeXGyreSchola TeXGyreTermes XITS
+.PHONY: clean distclean Asana DejaVu FiraMath Garamond GFSNeoHellenic LatinModern LeteSansMath Libertinus NeoEuler NewComputerModern NewComputerModernSans STIXTwo TeXGyreBonum TeXGyrePagella TeXGyreSchola TeXGyreTermes XITS
 
 
 # Asana
@@ -317,16 +317,16 @@ TeXGyreTermes: TeXGyreTermes/texgyretermes
 	 # Generate the testcase
 	@PYTHON@ GenerateHTMLTest.py $@ texgyretermes-math.woff
 
-# STIX
+# STIXTwo
 
 STIX_URL="https://github.com/stipub/stixfonts/blob/master/zipfiles/STIX2_13-all.zip?raw=true"
 
-STIX/stix:
+STIXTwo/stixtwo:
 	 # Get the package from fontforge
-	cd STIX; @WGET@ $(STIX_URL) -O STIX.zip;
-	mkdir $@; @UNZIP@ -j STIX/STIX.zip -d $@;
+	cd STIXTwo; @WGET@ $(STIX_URL) -O STIXTwo.zip;
+	mkdir $@; @UNZIP@ -j STIXTwo/STIXTwo.zip -d $@;
 
-STIX: STIX/stix
+STIX: STIXTwo/stixtwo
 	 # Generate CheckFont logs
 	@PYTHON@ CheckFont.py $@/STIXTwoMath-Regular.woff \
 	> $@/CheckFontLog.txt 2> $@/CheckFontError.txt

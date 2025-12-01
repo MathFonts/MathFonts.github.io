@@ -1,0 +1,4 @@
+Program root: /usr
+The following table(s) in the font have been ignored by FontForge
+  Ignoring 'VDMX' vertical device metrics table
+  Ignoring 'meta' metadata table

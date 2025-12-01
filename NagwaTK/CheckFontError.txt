@@ -1,0 +1,12 @@
+Program root: /usr
+In NagwaTKMath-Regular, in glyph hamzaabove-ar, 'CFF ' advance width (0) and
+  'hmtx' width (600) do not match. (Subsequent mismatches will not be reported)
+The glyph named Delta is mapped to U+0394.
+But its name indicates it should be mapped to U+2206.
+The glyph named Omega is mapped to U+03A9.
+But its name indicates it should be mapped to U+2126.
+The glyph named mu is mapped to U+03BC.
+But its name indicates it should be mapped to U+00B5.
+The glyph named smile is mapped to U+2323.
+But its name indicates it should be mapped to U+263A.
+Warning: Could not determined stretch direction for glyph U+01EEF0
