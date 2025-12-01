@@ -602,6 +602,11 @@ def main(aDirectory, aFont):
   <link rel=\"stylesheet\" type=\"text/css\" href=\"./mathfonts.css\"/>\n\
   %s\n\
     <style>\n\
+    @font-face {\n\
+    font-family: MathFont;\n\
+    src: url('%s');\n\
+     }\n\
+    math{font-family:MathFont;}\n\
     p.breadcrumb {font-size: .9rem; border-bottom: solid thin black;}\n\
     p.breadcrumb a {text-decoration:none; color:blue;}\n\
    </style>\n\
@@ -611,7 +616,7 @@ def main(aDirectory, aFont):
     <h1>%s</h1>\n\
     <a href=\"./CheckFontLog.txt\">CheckFontLog.txt</a> - \
     <a href=\"./CheckFontError.txt\">CheckFontError.txt</a>" %
-          (aFont, kStyle, aFont), file=testfile)
+          (aFont, kStyle, aFont,aFont), file=testfile)
 
     font = fontforge.open("%s/%s" % (aDirectory, aFont))
     printBasicFontInfo(testfile, font)
