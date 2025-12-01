@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mathematical OpenType Fonts List</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="./font-selection.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          let font_data = document.getElementById("font_data");
+          for (let value in mathfont_list) {
+              if (value == "Default")
+                  continue;
+              font_data.insertAdjacentHTML("beforeend",
+                                           `<li><a href="${value}/">${mathfont_list[value]}</a></li>`);
+          }
+      });
+      </script>
+    <style>
+    p.breadcrumb {font-size: .9rem; border-bottom: solid thin black;}
+    p.breadcrumb a {text-decoration:none; color:blue;}
+   </style>
+
+   </head>
+  <body>
+  <p class="breadcrumb"><a href="./">MathFonts.github.io</a></p>
+    <h1>Mathematical OpenType Fonts List</h1>
+
+    <p>Data on each of the Math fonts served as woff2  from this site:</p>
+    <ul id="font_data">
+    </ul>
+
+  </body>
+</html>
