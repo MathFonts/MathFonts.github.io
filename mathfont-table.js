@@ -168,7 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	
 	if (hdtr) {
-	 	    let i = 0;
+	    let i = 0;
+	    let hdcols=hdtr.children.length;
 	    for (let value in mathfont_list) {
 		let th = document.createElement("th");
 		th.setAttribute("class",value);
@@ -179,17 +180,16 @@ document.addEventListener("DOMContentLoaded", () => {
 		hdtr.appendChild(th);
 		i=i+1;
 	    }
-	    
 	    const rows = Array.from(table.querySelectorAll('tbody tr'));
 	    rows.forEach(row => {
 		const cells = Array.from(row.querySelectorAll('td'));
 		// if there are fewer than 4 cells, skip
-		if (cells.length < 4) return;
+		if (cells.length <= hdcols) return;
 		// content to replicate - assume the 4th cell holds the sample
-		const templateHTML = cells[3].innerHTML;
+		const templateHTML = cells[hdcols].innerHTML;
 		
 		// remove any cells from index 3 onward (we'll recreate them)
-		for (let i = cells.length - 1; i >= 3; i--) {
+		for (let i = cells.length - 1; i >= hdcols; i--) {
 		    cells[i].remove();
 		}
 		
