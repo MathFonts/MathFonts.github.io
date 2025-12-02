@@ -89,7 +89,63 @@
     <dd>LaTeX Table generator with a similar interface to the MathML tests.
       Select the desired fonts and a test LaTeX expression and a (wide or tall) PDF document
       will be generated at <a href="https://texlive.net">TeXLive.net</a> in a new tab.</dd>
-    <dt><a href="https://texlive.net/run?%25%20!TeX%20lualatex%0A%5Cdocumentclass%7Barticle%7D%0A%0A%5Cusepackage%7Bunicode-math%7D%0A%0A%25%20uncomment%20one%20font%0A%5Csetmathfont%0A%25%7BSTIXTwoMath-Regular.otf%7D%0A%25%7BNewCMMath-Book.otf%7D%0A%25%7BNewCMSansMath-Regular.otf%7D%0A%25%7Blatinmodern-math.otf%7D%0A%25%7BAsana-Math.otf%7D%0A%25%7BDejaVuMathTeXGyre.otf%7D%0A%25%7BFiraMath-Regular.otf%7D%0A%25%7BGaramond-Math.otf%7D%0A%25%7BGFSNeohellenicMath.otf%7D%0A%25%7BLeteSansMath.otf%7D%0A%25%7Blibertinusmath-regular.otf%7D%0A%25%7Btexgyrebonum-math.otf%7D%0A%25%7Btexgyrepagella-math.otf%7D%0A%25%7Btexgyreschola-math.otf%7D%0A%25%7Btexgyretermes-math.otf%7D%0A%25%7BXITSMath-Regular.otf%7D%0A%25%7BNotoSansMath-Regular.otf%7D%0A%25%7BArsenalMath-Sans.otf%7D%0A%25%7BIBMPlexMath-Regular.otf%7D%0A%25%7BErewhon-Math.otf%7D%0A%25%7BOldStandard-Math.otf%7D%0A%25%7BXCharter-Math.otf%7D%0A%25%7BKpMath-Regular.otf%7D%0A%25%7BKpMath-Sans.otf%7D%0A%25%7BPennstanderMath-Regular.otf%7D%0A%25%7BLuciole-Math.otf%7D%0A%25%7BConcrete-Math.otf%7D%0A%25%7BEuler-Math.otf%7D%0A%25%7BPubliculum.ttf%7D%0A%7BNagwaTKMath-Regular.otf%7D%25%20Use%20Nagwa%20TK%0A%0A%5Cbegin%7Bdocument%7D%0A%5Cbegin%7Bgather%7D%0A%20%20%5Cint_a%5Eb%20%5Ccos%20%5Ctheta%20%5C,d%5Ctheta%20=%20%5Csin%20b%20-%20%5Csin%20a%0A%20%5C%5C%0A%20%20%5Cbegin%7Bpmatrix%7D%0A%20%20%20%20a&b%5C%5Cx&y%0A%20%20%5Cend%7Bpmatrix%7D%0A%20%20%20+%0A%20%5Cbegin%7Bpmatrix%7D%0A%20%20%20%201&2%5C%5C3&4%0A%20%20%5Cend%7Bpmatrix%7D%0A%20%20=%0A%20%20%5Cbegin%7Bpmatrix%7D%0A%20%20%20%20a+1&b+2%5C%5Cx+3&y+4%0A%20%20%5Cend%7Bpmatrix%7D%0A%5Cend%7Bgather%7D%0A%0A%5Cend%7Bdocument%7D%0A">Testing with LuaLaTeX</a></dt>
+    <dt><a href="https://texlive.net/run?%25 !TeX lualatex
+%0A\documentclass{article}
+%0A
+%0A\usepackage{unicode-math}
+%0A
+%0A%25 uncomment one font
+%0A\setmathfont
+%0A%25{STIXTwoMath-Regular.otf}
+%0A%25{NewCMMath-Book.otf}
+%0A%25{NewCMSansMath-Regular.otf}
+%0A%25{latinmodern-math.otf}
+%0A%25{Asana-Math.otf}
+%0A%25{DejaVuMathTeXGyre.otf}
+%0A%25{FiraMath-Regular.otf}
+%0A%25{Garamond-Math.otf}
+%0A%25{GFSNeohellenicMath.otf}
+%0A%25{LeteSansMath.otf}
+%0A%25{libertinusmath-regular.otf}
+%0A%25{texgyrebonum-math.otf}
+%0A%25{texgyrepagella-math.otf}
+%0A%25{texgyreschola-math.otf}
+%0A%25{texgyretermes-math.otf}
+%0A%25{XITSMath-Regular.otf}
+%0A%25{NotoSansMath-Regular.otf}
+%0A%25{ArsenalMath-Sans.otf}
+%0A%25{IBMPlexMath-Regular.otf}
+%0A%25{Erewhon-Math.otf}
+%0A%25{OldStandard-Math.otf}
+%0A%25{XCharter-Math.otf}
+%0A%25{KpMath-Regular.otf}
+%0A%25{KpMath-Sans.otf}
+%0A%25{PennstanderMath-Regular.otf}
+%0A%25{Luciole-Math.otf}
+%0A%25{Concrete-Math.otf}
+%0A%25{Euler-Math.otf}
+%0A%25{Publiculum.ttf}
+%0A{NagwaTKMath-Regular.otf}%25 Use Nagwa TK
+%0A
+%0A\begin{document}
+%0A\begin{gather}
+%0A  \int_a%5Eb \cos \theta \,d\theta = \sin b - \sin a
+%0A \\
+%0A  \begin{pmatrix}
+%0A    a&b\\x&y
+%0A  \end{pmatrix}
+%0A   +
+%0A \begin{pmatrix}
+%0A    1&2\\3&4
+%0A  \end{pmatrix}
+%0A  =
+%0A  \begin{pmatrix}
+%0A    a+1&b+2\\x+3&y+4
+%0A  \end{pmatrix}
+%0A\end{gather}
+%0A
+%0A\end{document}
+%0A">Testing with LuaLaTeX</a></dt>
     <dd>All the freely available fonts described here are installed at <a href="https://texlive.net">TeXLive.net</a> The above link leads to an editable test file that shows the outcome of using the fonts with LuaLaTeX.</dd>
     </dl>
 
