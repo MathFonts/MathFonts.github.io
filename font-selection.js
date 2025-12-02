@@ -32,6 +32,7 @@ const mathfont_list = {
     "ConcMath": "Concrete Math",
     "NagwaTK": "Nagwa TK Math",
     "Euler": "Euler Math",
+    "Publiculum": "Publiculum",
 };
 
 document.addEventListener("DOMContentLoaded", () => {

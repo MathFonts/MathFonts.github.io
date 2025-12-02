@@ -1,0 +1,13 @@
+/*
+Publiculum ttf converted to woff2 via fontforge
+Licence OFL
+*/
+
+@namespace url('http://www.w3.org/1999/xhtml');
+@namespace m url('http://www.w3.org/1998/Math/MathML');
+
+@font-face {
+    font-family: Publiculum;
+    src:  url('Publiculum.woff2');
+}
+
