@@ -12,7 +12,7 @@
                   continue;
 	      if(mathfont_list[value].includes("(")) {
               font_data.insertAdjacentHTML("beforeend",
-                                           `<li>${mathfont_list[value]}</li>`);
+                                           `<li>${mathfont_list[value].replace('local only','local .otf only')}</li>`);
 	      } else {
               font_data.insertAdjacentHTML("beforeend",
                                            `<li><a href="${value}/">${mathfont_list[value]}</a></li>`);
