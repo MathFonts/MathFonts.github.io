@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	if(fontsP && fontsP.includes(",FoD,")) document.getElementById("fontdragr").style.display="block";
 	let i = 0;
 	for (let value in mathfont_list) {
-	    if(value!="FontDrop" || typeof noFontDrop == 'undefined') {
+	    if((value!="FontDrop" && value!="Default" && !mathfont_list[value].includes("(") )|| typeof noFontDrop == 'undefined') {
 		const sp = document.createElement('span');
 		const t = document.createTextNode(' ');
 		sp.style.whiteSpace="nowrap";
