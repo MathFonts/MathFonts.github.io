@@ -38,7 +38,7 @@
 </style>
 <script>
   function checkfont (f) {
-      return ((document.getElementById('select' + f).checked ? ' ' : '%') +'#1{' + f + '}');
+      return ((document.getElementById('select' + f).checked ? ' ' : '%') +'#1{' + f.replace('NewComputerModern','NCM') + '}');
 }
   function updateLaTeX () {
       const layout=document.querySelector('input[name="layout"]:checked').value;
@@ -153,7 +153,7 @@ ${layout=='h' || layout=='v' ?
     <input type="radio" name="layout" id="lf"         value="f"/><label for="lf">Flow</label>
 </p>
   <p>
-    <input id="setminw" type="range" min="0" max="40" step=".5" value="15"/>
+    <input id="setminw" type="range" min="0" max="30" step=".5" value="10"/>
 <label for="setminw">min width for flow layout:</label>  <output id="minwvalue"></output>em</p>
   </details>
 </details>
