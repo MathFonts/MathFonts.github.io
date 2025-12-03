@@ -131,6 +131,7 @@ ${lh? '&' : ''}\flLIST\flSHOW
 <p>
     <input type="radio" name="layout" id="lh"         /><label for="lh">Horizontal</label>
     <input type="radio" name="layout" id="lv" checked /><label for="lv">Vertical</label>
+    <input type="radio" name="layout" id="lf"         /><label for="lf">Flow</label>
 </p>
 </details>
 
@@ -158,6 +159,8 @@ ${lh? '&' : ''}\flLIST\flSHOW
     
 <script>
   if(layoutP=="v") document.getElementById("lv").checked=true;
+  if(layoutP=="h") document.getElementById("lh").checked=true;
+  if(layoutP=="f") document.getElementById("lf").checked=true;
   if(ltxP) document.getElementById("ltxedit").value= LZString.decompressFromEncodedURIComponent(ltxP);
 </script>
 
