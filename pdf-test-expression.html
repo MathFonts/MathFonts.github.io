@@ -55,6 +55,7 @@
 \aboverulesep=7pt
 \belowrulesep=7pt
 
+\centering
 \parindent=0pt
 
 \def\flEXP{${document.getElementById('ltxedit').value}}
@@ -102,7 +103,7 @@ ${checkfont('Publiculum')}{Publiculum.ttf}
 ${layout=='f'? '\\setlength\\lineskip{10pt}\\parfillskip=0pt' : ''}
 
 \def\flSHOW#1#2{%
-${layout=='f'? '\\ifhmode\\hfill\\fi\\fbox{\\begin{tabular}[t]{c}\\csname t#1\\endcsname#1\\\\[4pt]' : ''}%
+${layout=='f'? '\\ifhmode\\hfill\\fi\\fbox{\\begin{tabular}[t]{c}\\csname t#1\\endcsname#1\\\\[-.5\\normalbaselineskip]\\rule{' + minwin.value +'em}{0pt} \\\\' : ''}%
 ${layout=='v'? '\\csname t#1\\endcsname#1&' : ''}%
   \csname t#1\endcsname$%
   \textfont0=\csname t#1\endcsname\textfont1=\textfont0 \textfont2=\textfont0 \textfont3=\textfont0 \textfont4=\textfont0
@@ -151,6 +152,10 @@ ${layout=='h' || layout=='v' ?
     <input type="radio" name="layout" id="lv" checked value="v"/><label for="lv">Vertical</label>
     <input type="radio" name="layout" id="lf"         value="f"/><label for="lf">Flow</label>
 </p>
+  <p>
+    <input id="setminw" type="range" min="0" max="40" step=".5" value="15"/>
+<label for="setminw">min width:</label>  <output id="minwvalue"></output>em</p> (flow layout)
+  </details>
 </details>
 
   <h3>LaTeX Expression</h3>
@@ -163,7 +168,7 @@ ${layout=='h' || layout=='v' ?
       method="post"
       name="f1" id="f1"
       target="_blank">
-  <textarea style="xdisplay:none" type="text" name="filecontents[]" id="doc" rows="10" cols="80">
+  <textarea style="display:none" type="text" name="filecontents[]" id="doc" rows="10" cols="80">
   </textarea>
   <input style="display:none" type="text" name="filename[]" value="document.tex"/>
   <input style="display:none" type="text" name="engine" value="lualatex"/>
@@ -180,6 +185,16 @@ ${layout=='h' || layout=='v' ?
   if(layoutP=="v") document.getElementById("lv").checked=true;
   if(layoutP=="f") document.getElementById("lf").checked=true;
   if(ltxP) document.getElementById("ltxedit").value= LZString.decompressFromEncodedURIComponent(ltxP);
+   const minwv = document.querySelector("#minwvalue");
+   const minwin = document.querySelector("#setminw");
+
+   if(widthP) {
+       minwin.value=widthP;
+   }
+   minwv.textContent = minwin.value;
+   minwin.addEventListener("input", (event) => {
+       minwv.textContent = event.target.value;
+   });
 </script>
 
 </body>
