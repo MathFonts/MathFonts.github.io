@@ -103,7 +103,7 @@ ${checkfont('Publiculum')}{Publiculum.ttf}
 ${layout=='f'? '\\setlength\\lineskip{10pt}\\parfillskip=0pt' : ''}
 
 \def\flSHOW#1#2{%
-${layout=='f'? '\\ifhmode\\hfill\\fi\\fbox{\\begin{tabular}[t]{c}\\csname t#1\\endcsname#1\\\\[-.5\\normalbaselineskip]\\rule{' + minwin.value +'em}{0pt} \\\\' : ''}%
+${layout=='f'? '\\ifhmode\\hfill\\fi\\vrule\\mbox{\\begin{tabular}[t]{c}\\csname t#1\\endcsname#1\\\\[-.5\\normalbaselineskip]\\rule{' + minwin.value +'em}{0pt} \\\\' : ''}%
 ${layout=='v'? '\\csname t#1\\endcsname#1&' : ''}%
   \csname t#1\endcsname$%
   \textfont0=\csname t#1\endcsname\textfont1=\textfont0 \textfont2=\textfont0 \textfont3=\textfont0 \textfont4=\textfont0
@@ -112,7 +112,7 @@ ${layout=='v'? '\\csname t#1\\endcsname#1&' : ''}%
   {\begin{gathered}\flEXP\end{gathered}}$%
 ${layout=='h'? '&' : ''}%
 ${layout=='v'? '\\\\[30pt]\\midrule' : ''}%
-${layout=='f'? '\\end{tabular}}' : ''}%
+${layout=='f'? '\\end{tabular}}\\vrule' : ''}%
 }
 \def\flHEAD#1#2{\csname t#1\endcsname#1&}
 
