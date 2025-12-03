@@ -41,13 +41,21 @@
       return ((document.getElementById('select' + f).checked ? ' ' : '%') +'#1{' + f + '}');
 }
   function updateLaTeX () {
-      const lh=document.getElementById("lh").checked;
+      const layout=document.querySelector('input[name="layout"]:checked').value;
       let  docstr=String.raw`
 % !TeX lualatex
 \documentclass{article}
 \usepackage{booktabs}
+
+\pagestyle{empty}
+\advance\textwidth 4cm
+\advance\oddsidemargin -2cm
+\advance\textheight 5cm
+\advance\topmargin -2cm
 \aboverulesep=7pt
 \belowrulesep=7pt
+
+\parindent=0pt
 
 \def\flEXP{${document.getElementById('ltxedit').value}}
 
@@ -91,23 +99,33 @@ ${checkfont('Publiculum')}{Publiculum.ttf}
 \flLIST\defmathfont
 
 \begin{document}
+${layout=='f'? '\\setlength\\lineskip{10pt}\\parfillskip=0pt' : ''}
 
-\def\flSHOW#1#2{${lh? '' : '#1&'}\csname t#1\endcsname$%
+\def\flSHOW#1#2{%
+${layout=='f'? '\\ifhmode\\hfill\\fi\\fbox{\\begin{tabular}[t]{c}\\csname t#1\\endcsname#1\\\\[4pt]' : ''}%
+${layout=='v'? '\\csname t#1\\endcsname#1&' : ''}%
+  \csname t#1\endcsname$%
   \textfont0=\csname t#1\endcsname\textfont1=\textfont0 \textfont2=\textfont0 \textfont3=\textfont0 \textfont4=\textfont0
   \scriptfont0=\csname s#1\endcsname\scriptfont1=\scriptfont0 \scriptfont2=\scriptfont0 \scriptfont3=\scriptfont0 \scriptfont4=\scriptfont0
   \scriptscriptfont0=\csname ss#1\endcsname\scriptscriptfont1=\scriptscriptfont0 \scriptscriptfont2=\scriptscriptfont0 \scriptscriptfont3=\scriptscriptfont0 \scriptscriptfont4=\scriptscriptfont0
-  {\begin{gathered}\flEXP\end{gathered}}$ ${lh? '&' : '\\\\[30pt]\\midrule'}}
-\def\flHEAD#1#2{\textbf{#1}&}
+  {\begin{gathered}\flEXP\end{gathered}}$%
+${layout=='h'? '&' : ''}%
+${layout=='v'? '\\\\[30pt]\\midrule' : ''}%
+${layout=='f'? '\\end{tabular}}' : ''}%
+}
+\def\flHEAD#1#2{\csname t#1\endcsname#1&}
 
   \large
-\sbox0{\begin{tabular}{${lh? '|*{40}{c|}' : 'lc' }}
-${lh? '&\\flLIST\\flHEAD\\\\[5pt]' : '\\midrule'}
-${lh? '&' : ''}\flLIST\flSHOW
-\end{tabular}}
-\pagewidth\dimexpr\wd0+4cm
-\pageheight\dimexpr\ht0+\ht0+2cm
-\voffset=-1.5cm
-\shipout\box0
+
+${layout=='h'? '\\sbox0{\\begin{tabular}{|*{40}{c|}}' : ''}%
+${layout=='v'? '\\sbox0{\\begin{tabular}{lc}' : ''}%
+${layout=='h'? '&\\flLIST\\flHEAD\\\\[5pt]' : ''}%
+${layout=='v'? '\\midrule' : ''}%
+${layout=='h'? '&' : ''}
+\flLIST\flSHOW
+${layout=='h' || layout=='v' ?
+'\\end{tabular}}\\pagewidth\\dimexpr\\wd0+4cm \\pageheight\\dimexpr\\ht0+\\ht0+2cm \\voffset=-1.5cm \\hoffset=-1cm \\shipout\\box0 ' : ''}
+
 \end{document}
  `;
 
@@ -129,8 +147,9 @@ ${lh? '&' : ''}\flLIST\flSHOW
       <button onclick="deleteCookies()">Reset State (Delete Cookies)</button>
 </p>
 <p>
-    <input type="radio" name="layout" id="lh"         /><label for="lh">Horizontal</label>
-    <input type="radio" name="layout" id="lv" checked /><label for="lv">Vertical</label>
+    <input type="radio" name="layout" id="lh"         value="h"/><label for="lh">Horizontal</label>
+    <input type="radio" name="layout" id="lv" checked value="v"/><label for="lv">Vertical</label>
+    <input type="radio" name="layout" id="lf"         value="f"/><label for="lf">Flow</label>
 </p>
 </details>
 
@@ -144,7 +163,7 @@ ${lh? '&' : ''}\flLIST\flSHOW
       method="post"
       name="f1" id="f1"
       target="_blank">
-  <textarea style="display:none" type="text" name="filecontents[]" id="doc" rows="10" cols="80">
+  <textarea style="xdisplay:none" type="text" name="filecontents[]" id="doc" rows="10" cols="80">
   </textarea>
   <input style="display:none" type="text" name="filename[]" value="document.tex"/>
   <input style="display:none" type="text" name="engine" value="lualatex"/>
@@ -157,7 +176,9 @@ ${lh? '&' : ''}\flLIST\flSHOW
     Then submit the form to generate a PDF table in a new tab.</p>
     
 <script>
+  if(layoutP=="h") document.getElementById("lh").checked=true;
   if(layoutP=="v") document.getElementById("lv").checked=true;
+  if(layoutP=="f") document.getElementById("lf").checked=true;
   if(ltxP) document.getElementById("ltxedit").value= LZString.decompressFromEncodedURIComponent(ltxP);
 </script>
 
