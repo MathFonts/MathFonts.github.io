@@ -57,7 +57,7 @@ if(!widthP) widthP=getCookie("mathfonts-width");
 let layoutP=urlP.get("l");
 if(!layoutP) laoutP=getCookie("mathfonts-layout");
 
-let ltxP=urlP.get("ltx");
+let ltxP=urlP.get("tx");
 if(!ltxP) ltxP=getCookie("mathfonts-ltx");
 
 let amP=urlP.get("am");
@@ -83,7 +83,7 @@ function updateURL () {
     const l= document.getElementById("ltxedit");
     const am = document.getElementById("asciimathedit");
     const mml = document.getElementById("mmledit");
-    if(l) newl=newl + "&ltx=" + LZString.compressToEncodedURIComponent(l.value);
+    if(l) newl=newl + "&tx=" + LZString.compressToEncodedURIComponent(l.value);
     if(am) newl=newl + "&am=" + LZString.compressToEncodedURIComponent(am.value);
     if(mml) newl=newl + "&mml=" + LZString.compressToEncodedURIComponent(mml.value);
     // copy to clipboard
