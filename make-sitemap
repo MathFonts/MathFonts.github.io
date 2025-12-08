@@ -1,3 +1,14 @@
 
 find .  -name \*.pdf -o -name \*.md -o -name \*.html  -o -name  \*.woff2 -o -name \*.otf | grep -v '^[.]/404' | grep -v '^[.]/README' | grep -v  '^[.]/LICENCE' | grep -v '^./_' | grep -v google | sed -e 's/[.]md$//' -e 's/[.]html$//' -e 's/\/index$/\//' -e  's/^[.]/https:\/\/mathfonts.github.io/' > sitemap.txt
 
+sed \
+-e '1i\
+<?xml version="1.0" encoding="UTF-8"?>\
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' \
+-e 's/^\(http.*\)/<url><loc>\1<\/loc><\/url>/' sitemap.txt \
+-e '$a\
+</urlset>\
+' \
+>sitemap.xml
+
+
