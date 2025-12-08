@@ -1,3 +1,4 @@
+https://mathfonts.github.io/google5aa4a75eeeb0e30d
 https://mathfonts.github.io/DejaVu/SOURCES
 https://mathfonts.github.io/DejaVu/
 https://mathfonts.github.io/DejaVu/DejaVuSerif-BoldItalic.woff2
@@ -22,16 +23,11 @@ https://mathfonts.github.io/KpMathRegular/KpMath-Regular.otf
 https://mathfonts.github.io/KpMathRegular/
 https://mathfonts.github.io/mozilla_mathml_test
 https://mathfonts.github.io/Pennstander/SOURCES
-https://mathfonts.github.io/Pennstander/p-test
 https://mathfonts.github.io/Pennstander/Pennstander-Regular.woff2
-https://mathfonts.github.io/Pennstander/qudatratic-luamml-mathml
 https://mathfonts.github.io/Pennstander/Pennstander-Regular.otf
 https://mathfonts.github.io/Pennstander/
 https://mathfonts.github.io/Pennstander/PennstanderMath-Regular.woff2
 https://mathfonts.github.io/Pennstander/PennstanderMath-Regular.otf
-https://mathfonts.github.io/Pennstander/PennstanderMath-Regular-me.woff2
-https://mathfonts.github.io/Pennstander/Pennstander-ItalicRegular.otf
-https://mathfonts.github.io/Pennstander/qudatratic.pdf
 https://mathfonts.github.io/lz-string/SOURCES
 https://mathfonts.github.io/Garamond/
 https://mathfonts.github.io/Garamond/Garamond-Math.woff2
