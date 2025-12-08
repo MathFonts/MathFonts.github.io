@@ -1,4 +1,3 @@
-https://mathfonts.github.io/google5aa4a75eeeb0e30d
 https://mathfonts.github.io/DejaVu/SOURCES
 https://mathfonts.github.io/DejaVu/
 https://mathfonts.github.io/DejaVu/DejaVuSerif-BoldItalic.woff2
