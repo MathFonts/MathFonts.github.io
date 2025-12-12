@@ -1,5 +1,5 @@
 
-find .  -name \*.pdf -o -name \*.md -o -name \*.html  -o -name  \*.woff2 -o -name \*.otf | grep -v '^[.]/404' | grep -v '^[.]/README' | grep -v  '^[.]/LICENCE' | grep -v '^./_' | grep -v google | sed -e 's/[.]md$//' -e 's/[.]html$//' -e 's/\/index$/\//' -e  's/^[.]/https:\/\/mathfonts.github.io/' > sitemap.txt
+find .  -name \*.pdf -o -name \*.md -o -name \*.html  | grep -v '^[.]/404' | grep -v '^[.]/README' | grep -v  '^[.]/LICENCE' | grep -v '^./_' | grep -v google | sed -e 's/[.]md$//' -e 's/[.]html$//' -e 's/\/index$/\//' -e  's/^[.]/https:\/\/mathfonts.github.io/' > sitemap.txt
 
 sed \
 -e '1i\
