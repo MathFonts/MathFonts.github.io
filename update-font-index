@@ -1,5 +1,5 @@
 #!/bin/bash
-for i  in `ls Publiculum/Publiculum.woff2 */*ath*woff2 | grep -v Bold`
+for i  in `ls Publiculum/Publiculum.woff2 */*ath*woff2 | grep -v Bold` | grep -v  NewCMMath-Regular
 do
 d=`dirname $i`
 python3 GenerateHTMLTest.py $d `basename $i` > $d/CheckFontLog.txt 2> $d/CheckFontError.txt
