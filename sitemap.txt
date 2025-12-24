@@ -25,9 +25,7 @@ https://mathfonts.github.io/
 https://mathfonts.github.io/Erewhon/
 https://mathfonts.github.io/LeteSansMath/
 https://mathfonts.github.io/LeteSansMath/lete-sans-math/LeteSansMath.pdf
-https://mathfonts.github.io/LeteSansMath/lete-sans-math/README
 https://mathfonts.github.io/LeteSansMath/lete-sans-math/unimath-lete.pdf
-https://mathfonts.github.io/Plex/README
 https://mathfonts.github.io/Plex/
 https://mathfonts.github.io/Publiculum/SOURCES
 https://mathfonts.github.io/Publiculum/OFL
