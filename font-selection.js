@@ -37,6 +37,7 @@ const mathfont_list = {
     // Informal
     "Pennstander": "Pennstander Math Regular",
     "NagwaTK": "Nagwa TK Math",
+    "PL46": "PL46 Math",
 };
 
 document.addEventListener("DOMContentLoaded", () => {
