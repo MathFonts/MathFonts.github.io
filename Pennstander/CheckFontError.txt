@@ -1,1 +1,3 @@
 Program root: /usr
+The glyph named imageof is mapped to U+22B6.
+But its name indicates it should be mapped to U+22B7.
