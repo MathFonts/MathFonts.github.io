@@ -37,6 +37,7 @@ const mathfont_list = {
     "KpMathSans": "Kp Math Sans",
     "Luciole": "Luciole Math",
     // Informal
+    "ComicMathRelief": "Comic Math Relief",
     "Pennstander": "Pennstander Math Regular",
     "NagwaTK": "Nagwa TK Math",
     "PL46": "PL46 Math",

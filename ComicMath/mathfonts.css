@@ -1,0 +1,26 @@
+/*
+Computer Modern Math is released under the GUST Font License. See the files in this
+directory for details. The font can be obtained from several TeX distributions
+or package managers. Corresponding text founts are NewCM10-Regular.otf or NewCM10-Book.otf.
+
+The OTF fonts have been obtained from http://mirrors.ctan.org/fonts/ and converted
+to woff.
+*/
+
+@namespace url('http://www.w3.org/1999/xhtml');
+@namespace m url('http://www.w3.org/1998/Math/MathML');
+
+@font-face {
+    font-family: Comic Math Relief;
+    src: url('ComicMathRelief.otf');
+}
+
+@font-face {
+    font-family: Comic Relief;
+    src:  url('ComicRelief-Regular.ttf');
+}
+@font-face {
+    font-family: Comic Relief;
+    src: url('ComicRelief-Bold.ttf');
+    font-weight: bold;
+}
