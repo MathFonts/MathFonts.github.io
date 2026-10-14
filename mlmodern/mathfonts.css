@@ -11,7 +11,7 @@ to woff.
 @namespace m url('http://www.w3.org/1998/Math/MathML');
 
 @font-face {
-    font-family: ML Modern Math;
+    font-family: "ML Modern Math";
     src: url('mlmodern-math.otf');
 }
 
