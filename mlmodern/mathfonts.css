@@ -11,16 +11,16 @@ to woff.
 @namespace m url('http://www.w3.org/1998/Math/MathML');
 
 @font-face {
-    font-family: "ML Modern Math";
+    font-family: ML Modern Math;
     src: url('mlmodern-math.otf');
 }
 
 @font-face {
-    font-family: "MLM Roman 10";
+    font-family: MLM Roman 10;
     src:  url('mlmroman10-regular.otf');
 }
 @font-face {
-    font-family: "MLM Roman 10";
+    font-family: MLM Roman 10;
     src: url('mlmroman10-bold.otf');
     font-weight: bold;
 }
