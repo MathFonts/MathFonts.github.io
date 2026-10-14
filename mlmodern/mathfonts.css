@@ -17,12 +17,10 @@ to woff.
 
 @font-face {
     font-family: "MLM Roman 10";
-    src: local('MLM Roman 10'),
-         url('mlmroman10-regular.otf'),
+    src:  url('mlmroman10-regular.otf');
 }
 @font-face {
     font-family: "MLM Roman 10";
-    src: local('MLM Roman 10'),
-         url('mlmroman10-bold.otf'),
+    src: url('mlmroman10-bold.otf');
     font-weight: bold;
 }
