@@ -4,6 +4,7 @@ const mathfont_list = {
     "STIXTwo": "STIX Two Math",
     "NewComputerModern": "New Computer Modern Math",
     "LatinModern": "Latin Modern Math",
+    "MLModern": "ML Modern Math",
     "Asana": "Asana Math",
     "TeXGyreBonum": "TeX Gyre Bonum Math",
     "TeXGyrePagella": "TeX Gyre Pagella Math",

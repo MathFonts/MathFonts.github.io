@@ -1,0 +1,2 @@
+LPPL 1.3c https://www.latex-project.org/lppl/
+

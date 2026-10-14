@@ -12,7 +12,12 @@ to woff.
 
 @font-face {
     font-family: New Computer Modern Math;
-    src: url('NewCMMath-Book.woff2');
+    src: url('NewCMMath-Book.otf');
+}
+@font-face {
+    font-family: New Computer Modern Math;
+    src: url('NewCMMath-Bold.otf');
+    font-weight: bold;
 }
 
 @font-face {
