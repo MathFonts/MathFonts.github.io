@@ -15,6 +15,7 @@ https://mathfonts.github.io/OldStandard/
 https://mathfonts.github.io/ArsenalSans/
 https://mathfonts.github.io/KpMathSans/
 https://mathfonts.github.io/math-test-expression
+https://mathfonts.github.io/README
 https://mathfonts.github.io/Euler/
 https://mathfonts.github.io/NewComputerModernSans/SOURCES
 https://mathfonts.github.io/NewComputerModernSans/
@@ -25,7 +26,9 @@ https://mathfonts.github.io/
 https://mathfonts.github.io/Erewhon/
 https://mathfonts.github.io/LeteSansMath/
 https://mathfonts.github.io/LeteSansMath/lete-sans-math/LeteSansMath.pdf
+https://mathfonts.github.io/LeteSansMath/lete-sans-math/README
 https://mathfonts.github.io/LeteSansMath/lete-sans-math/unimath-lete.pdf
+https://mathfonts.github.io/Plex/README
 https://mathfonts.github.io/Plex/
 https://mathfonts.github.io/Publiculum/SOURCES
 https://mathfonts.github.io/Publiculum/OFL
@@ -34,6 +37,10 @@ https://mathfonts.github.io/math-accents
 https://mathfonts.github.io/LatinModern/
 https://mathfonts.github.io/GFSNeoHellenic/
 https://mathfonts.github.io/XCharter/
+https://mathfonts.github.io/MLModern/SOURCES
+https://mathfonts.github.io/MLModern/
+https://mathfonts.github.io/ComicMathRelief/SOURCES
+https://mathfonts.github.io/ComicMathRelief/
 https://mathfonts.github.io/NewComputerModern/SOURCES
 https://mathfonts.github.io/NewComputerModern/
 https://mathfonts.github.io/woff2-list
@@ -43,6 +50,7 @@ https://mathfonts.github.io/TeXGyreSchola/
 https://mathfonts.github.io/STIXTwo/
 https://mathfonts.github.io/Libertinus/
 https://mathfonts.github.io/larger-expressions
+https://mathfonts.github.io/PL46/
 https://mathfonts.github.io/TeXGyrePagella/
 https://mathfonts.github.io/XITS/SOURCES
 https://mathfonts.github.io/XITS/
