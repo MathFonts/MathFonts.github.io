@@ -1,0 +1,3 @@
+Program root: /usr
+In FiraMath-Regular, in glyph uni0021, 'CFF ' advance width (826) and
+  'hmtx' width (241) do not match. (Subsequent mismatches will not be reported)
