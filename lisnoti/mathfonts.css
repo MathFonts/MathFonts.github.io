@@ -15,12 +15,12 @@ the number 1 are always distinct, as are capital O and the number 0.
 @namespace m url('http://www.w3.org/1998/Math/MathML');
 
 @font-face {
-    font-family: Lisnoti;
+    font-family: lisnoti;
     src: url('Lisnoti-Regular.ttf');
 }
 
 @font-face {
-    font-family: Lisnoti;
+    font-family: lisnoti;
     src: url('Lisnoti-Bold.ttf');
     font-weight: bold;
 }
