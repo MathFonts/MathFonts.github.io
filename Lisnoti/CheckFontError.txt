@@ -1,0 +1,3 @@
+Program root: /usr
+The following table(s) in the font have been ignored by FontForge
+  Ignoring 'STAT' style attributes table

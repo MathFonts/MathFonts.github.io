@@ -32,6 +32,7 @@ const mathfont_list = {
     "NewComputerModernSans": "New Computer Modern Sans Math",
     "LeteSansMath": "Lete Sans Math",
     "NotoSans": "Noto Sans Math",
+    "Lisnoti": "Lisnoti",
     "ArsenalSans": "Arsenal Sans Math",
     "KpMathSans": "Kp Math Sans",
     "Luciole": "Luciole Math",

@@ -1,0 +1,26 @@
+/*
+Lisnoti is a proportional sans serif font for everyday use, with
+clear, unambiguous letters and coverage of Latin, Greek, Cyrillic and
+Devanagari character sets. It is particularly strong for maths,
+science and actuarial work, including typesetting equations, and comes
+in regular, italic, bold and bold italic.
+
+Lisnoti is derived from Google’s Noto fonts, including Khaled Hosny’s
+2024 redesign of Noto Sans Math, but with numerous amendments to
+improve clarity and consistency. In particular, capital I, small l and
+the number 1 are always distinct, as are capital O and the number 0.
+*/
+
+@namespace url('http://www.w3.org/1999/xhtml');
+@namespace m url('http://www.w3.org/1998/Math/MathML');
+
+@font-face {
+    font-family: Lisnoti;
+    src: url('Lisnoti-Regular.ttf');
+}
+
+@font-face {
+    font-family: Lisnoti;
+    src: url('Lisnoti-Bold.ttf');
+    font-weight: bold;
+}

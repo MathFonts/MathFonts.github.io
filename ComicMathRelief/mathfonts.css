@@ -17,10 +17,6 @@ to woff.
 
 @font-face {
     font-family: Comic Relief;
-    src:  url('ComicRelief-Regular.ttf');
-}
-@font-face {
-    font-family: Comic Relief;
     src: url('ComicRelief-Bold.ttf');
     font-weight: bold;
 }
