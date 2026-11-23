@@ -9,13 +9,13 @@ or package managers.
 
 @font-face {
     font-family: MicfongSans;
-    src: url('MicfongSans.woff2');
+    src: url('MicfongSansMath.woff2');
 }
 
 @font-face {
     font-family: MicfongSans;
     font-weight: bold;
-    src: url('MicfongSans-Bold.woff2');
+    src: url('MicfongSansMath-Bold.woff2');
 }
 
 @font-face {
