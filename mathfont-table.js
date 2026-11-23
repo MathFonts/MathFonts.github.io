@@ -32,6 +32,7 @@ const mathfont_list = {
     "GFSNeoHellenic": "GFS NeoHellenic Math",
     "NewComputerModernSans": "New Computer Modern Sans Math",
     "LeteSansMath": "Lete Sans Math",
+    "MicfongSans": "MicfongSans",
     "NotoSans": "Noto Sans Math",
     "lisnoti": "Lisnoti",
     "ArsenalSans": "Arsenal Sans Math",

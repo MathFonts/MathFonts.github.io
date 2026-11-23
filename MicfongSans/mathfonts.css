@@ -1,0 +1,35 @@
+/*
+IBM Plex is released under the SIL Open Font License, Version 1.1. See the files in this
+directory for details. The font can be obtained from several TeX distributions
+or package managers.
+*/
+
+@namespace url('http://www.w3.org/1999/xhtml');
+@namespace m url('http://www.w3.org/1998/Math/MathML');
+
+@font-face {
+    font-family: MicfongSans;
+    src: url('IBMPlexMath-Regular.woff2');
+}
+
+@font-face {
+    font-family: "IBMPlexSans";
+    src: url('IBMPlexSans-Regular.woff2');
+}
+@font-face {
+    font-family: "IBMPlexSans";
+    src: url('IBMPlexSans-Bold.woff2');
+    font-weight: bold;
+}
+@font-face {
+    font-family: "IBMPlexSans";
+    src: url('IBMPlexSans-Italic.woff2');
+    font-style: italic;
+}
+@font-face {
+    font-family: "IBMPlexSans";
+    src: url('IBMPlexSans-BoldItalic.woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
